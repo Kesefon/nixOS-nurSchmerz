@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -38,13 +38,13 @@
   };
 
   # Configure keymap in X11
-  services.xserver.xkb = {
+  services.xserver.xkb = lib.mkDefault {
     layout = "de";
     variant = "";
   };
 
   # Configure console keymap
-  console.keyMap = "de";
+  console.keyMap = lib.mkDefault "de";
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
@@ -85,6 +85,7 @@
     spotify
     kdePackages.kate
     git
+    discord
   ];
 
   programs.fish.enable = true;

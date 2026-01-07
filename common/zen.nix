@@ -24,6 +24,7 @@ let
     "extensions.formautofill.creditCards.enabled" = false;
     "privacy.firstparty.isolate" = true;
     "widget.use-xdg-desktop-portal.file-picker" = 1;
+    "zen.welcome-screen.seen" = true;
   };
 
   extensions = [
