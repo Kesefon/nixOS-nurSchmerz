@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./zen.nix
+  ];
+
   # Enable OpenGL/Vulkan
   hardware.graphics = {
     enable = true;
@@ -80,6 +84,7 @@
     file
     spotify
     kdePackages.kate
+    git
   ];
 
   programs.fish.enable = true;
