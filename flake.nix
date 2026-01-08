@@ -7,8 +7,12 @@
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    nix-chuwi-minibook-x.url = "github:kesefon/nix-chuwi-minibook-x";
+    nix-chuwi-minibook-x.inputs.nixpkgs.follows = "nixpkgs";
+    nix-chuwi-minibook-x.inputs.nixos-hardware.follows = "nixos-hardware";
   };
-  outputs = inputs@{ self, nixpkgs, nixos-hardware, ... }: {
+  outputs = inputs@{ self, nixpkgs, nixos-hardware, nix-chuwi-minibook-x, ... }: {
     nixosConfigurations.shitbox = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
@@ -27,7 +31,7 @@
       modules = [
         ./common/desktop-base.nix
         ./compupars/togobox.nix
-        nixos-hardware.nixosModules.chuwi-minibook-x
+        nix-chuwi-minibook-x.nixosModules.default
       ];
     };
   };

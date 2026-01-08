@@ -47,7 +47,11 @@
   console.keyMap = lib.mkDefault "de";
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    wayland.compositor = "kwin";
+  };
   services.desktopManager.plasma6.enable = true;
 
   # Enable sound with pipewire.
@@ -70,7 +74,7 @@
   users.users.kesefon = {
     isNormalUser = true;
     description = "Kesefon";
-    extraGroups = [ "networkmanager" "wheel" "tss" ];
+    extraGroups = [ "networkmanager" "wheel" "tss" "systemd-journal" ];
   };
 
   # Allow unfree packages

@@ -1,5 +1,28 @@
 {
   "nodes": {
+    "nix-chuwi-minibook-x": {
+      "inputs": {
+        "nixos-hardware": [
+          "nixos-hardware"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1767905068,
+        "narHash": "sha256-/yyE/0/e+SKxu6r2bc8L1DcP6y86geaHaaWsi+bdYBo=",
+        "owner": "kesefon",
+        "repo": "nix-chuwi-minibook-x",
+        "rev": "04ae85b2b27d72c69f33974b081fee5239c01283",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kesefon",
+        "repo": "nix-chuwi-minibook-x",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1767185284,
@@ -18,11 +41,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1767480499,
-        "narHash": "sha256-8IQQUorUGiSmFaPnLSo2+T+rjHtiNWc+OAzeHck7N48=",
+        "lastModified": 1767799921,
+        "narHash": "sha256-r4GVX+FToWVE2My8VVZH4V0pTIpnu2ZE8/Z4uxGEMBE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "30a3c519afcf3f99e2c6df3b359aec5692054d92",
+        "rev": "d351d0653aeb7877273920cd3e823994e7579b0b",
         "type": "github"
       },
       "original": {
@@ -34,6 +57,7 @@
     },
     "root": {
       "inputs": {
+        "nix-chuwi-minibook-x": "nix-chuwi-minibook-x",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "zen-browser": "zen-browser"

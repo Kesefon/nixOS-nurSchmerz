@@ -15,6 +15,11 @@
 
   hardware.bluetooth.enable = true;
 
+  hardware.chuwi-minibook-x = {
+    mountMatrix = "0,-1,0;1,0,0;0,0,1";
+    tabletMode.enable = true;
+  };
+
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
