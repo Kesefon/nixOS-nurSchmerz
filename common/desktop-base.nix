@@ -90,6 +90,10 @@
     kdePackages.kate
     git
     discord
+    mpv
+    krita
+    onlyoffice-desktopeditors
+    xournalpp
   ];
 
   programs.fish.enable = true;

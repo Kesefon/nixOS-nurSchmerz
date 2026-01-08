@@ -19,6 +19,9 @@
     mountMatrix = "0,-1,0;1,0,0;0,0,1";
     tabletMode.enable = true;
   };
+  environment.systemPackages = with pkgs; [
+    maliit-keyboard
+  ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
