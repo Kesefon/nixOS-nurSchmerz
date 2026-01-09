@@ -19,6 +19,8 @@
       "${lib.kdePackages.libkscreen}/bin/kscreen-doctor output.DSI-1.rotation.right"
     ];
 
+  boot.loader.systemd-boot.consoleMode = "0"; # wrong orientation but at least you can read the entries
+
   hardware.chuwi-minibook-x = {
     mountMatrix = "0,-1,0;1,0,0;0,0,1";
     tabletMode.enable = true;
