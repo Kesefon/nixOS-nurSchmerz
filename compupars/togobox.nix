@@ -1,8 +1,8 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+  imports = [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   networking.hostName = "togobox";
@@ -14,6 +14,10 @@
   console.keyMap = "us";
 
   hardware.bluetooth.enable = true;
+
+  services.xserver.displayManager.setupCommands = [
+      "${lib.kdePackages.libkscreen}/bin/kscreen-doctor output.DSI-1.rotation.right"
+    ];
 
   hardware.chuwi-minibook-x = {
     mountMatrix = "0,-1,0;1,0,0;0,0,1";
