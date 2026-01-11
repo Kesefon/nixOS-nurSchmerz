@@ -6,9 +6,9 @@
   ];
 
   # Enable OpenGL/Vulkan
-  hardware.graphics = {
+  hardware.graphics = lib.mkDefault {
     enable = true;
-    enable32Bit = true;
+    #enable32Bit = true;
   };
 
   # Bootloader.
@@ -22,7 +22,7 @@
   security.tpm2.tctiEnvironment.enable = true;  # TPM2TOOLS_TCTI and TPM2_PKCS11_TCTI env variables
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -86,21 +86,21 @@
     usbutils
     pciutils
     file
-    spotify
+    #spotify
     kdePackages.kate
     git
-    discord
+    #discord
     mpv
-    krita
-    onlyoffice-desktopeditors
-    xournalpp
+    #krita
+    #onlyoffice-desktopeditors
+    #xournalpp
   ];
 
   programs.fish.enable = true;
-  programs.steam = {
-    localNetworkGameTransfers.openFirewall = true;
-    enable = true;
-  };
+  #programs.steam = {
+    #localNetworkGameTransfers.openFirewall = true;
+    #enable = true;
+  #};
 
   programs.kdeconnect.enable = true;
 

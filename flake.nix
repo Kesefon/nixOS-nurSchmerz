@@ -34,5 +34,15 @@
         nix-chuwi-minibook-x.nixosModules.default
       ];
     };
+    nixosConfigurations.smolbox = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      specialArgs = {
+        inherit inputs;
+      };
+      modules = [
+        ./common/desktop-base.nix
+        ./compupars/smolbox.nix
+      ];
+    };
   };
 }
