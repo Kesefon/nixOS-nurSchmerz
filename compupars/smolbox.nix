@@ -22,8 +22,10 @@ in
 
   networking.hostName = "smolbox";
 
+  boot.initrd.includeDefaultModules = lib.mkForce false;
+
   boot.kernelPackages = pkgs.linuxPackagesFor rockchip_kernel;
-  boot.initrd.availableKernelModules = [ "nvme" "usb_storage" ];
+  boot.initrd.availableKernelModules = [ "nvme" "usb_storage" "mmc_block" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
