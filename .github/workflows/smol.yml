@@ -14,5 +14,6 @@ jobs:
       with:
         name: kesefon
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+    - run: sudo nix-store --verify --check-contents --repair
     - run: nix build .#nixosConfigurations.smolbox.config.system.build.toplevel
     - run: nix-shell --run "echo OK"
