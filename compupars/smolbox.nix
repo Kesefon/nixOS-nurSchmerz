@@ -1,20 +1,18 @@
 { config, lib, pkgs, modulesPath, ... }:
-# let
-#   rockchip_kernel = pkgs.buildLinux rec {
-#     modDirVersion = "6.1.75";
-#     version = "6.1.75-rk";
-#     extraMeta.branch = "noble";
-#
-#     src = pkgs.fetchFromGitHub {
-#       owner = "Joshua-Riek";
-#       repo = "linux-rockchip";
-#       rev = "e21cf49ee9a41a02846da050a6930e317bc99b68";
-#       hash = "sha256-gAI8BuZDG7hq8MmbCnjwLSKwcYxKsGcyerXlKBTbL+U=";
-#     };
-#
-#     configfile = ./ubuntu-rockchip-kernel-config;
-#   };
-# in
+let
+  rockchip_kernel = pkgs.buildLinux rec {
+    modDirVersion = "6.1.75";
+    version = "6.1.75-rk";
+    extraMeta.branch = "6.1";
+    src = pkgs.fetchFromGitHub {
+      owner = "Joshua-Riek";
+      repo = "linux-rockchip";
+      rev = "e21cf49ee9a41a02846da050a6930e317bc99b68";
+      hash = "sha256-gAI8BuZDG7hq8MmbCnjwLSKwcYxKsGcyerXlKBTbL+U=";
+    };
+    configfile = ./ubuntu-rockchip-kernel-config;
+  };
+in
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
@@ -25,24 +23,7 @@
   boot.initrd.includeDefaultModules = lib.mkForce false;
   #boot.initrd.allowMissingModules = true;
 
-#   boot.kernelPackages = (pkgs.linuxPackagesFor rockchip_kernel);
-
-  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_6_1.override {
-    argsOverride = rec {
-      src = pkgs.fetchFromGitHub {
-        owner = "Joshua-Riek";
-        repo = "linux-rockchip";
-        rev = "e21cf49ee9a41a02846da050a6930e317bc99b68";
-        hash = "sha256-gAI8BuZDG7hq8MmbCnjwLSKwcYxKsGcyerXlKBTbL+U=";
-      };
-      version = "6.1.75";
-      modDirVersion = "6.1.75";
-      #defconfig = "rockchip_linux_defconfig";
-      configfile = ./ubuntu-rockchip-kernel-config;
-      ignoreConfigErrors = true;
-      allowImportFromDerivation = true;
-    };
-  });
+  boot.kernelPackages = (pkgs.linuxPackagesFor rockchip_kernel);
 
   boot.initrd.availableKernelModules = lib.mkForce [ ];
   boot.kernelModules = lib.mkForce [ ];
