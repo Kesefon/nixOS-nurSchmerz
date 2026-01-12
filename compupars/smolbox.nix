@@ -33,7 +33,7 @@ in
   boot.initrd.allowMissingModules = true;
 
   boot.kernelPackages = pkgs.linuxPackagesFor rockchip_kernel;
-  boot.initrd.availableKernelModules = [ "nvme" "usb_storage" "mmc_block" ];
+  boot.initrd.availableKernelModules = [ "nvme" "usb_storage" "mmc_block" "hid" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
