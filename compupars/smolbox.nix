@@ -9,16 +9,9 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackagesFor (pkgs.callPackage ./rk3588-kernel.nix {});
-    supportedFilesystems = lib.mkForce [
-      "vfat"
-      "fat32"
-      "exfat"
-      "ext4"
-      "btrfs"
-    ];
+    supportedFilesystems = lib.mkForce [];
     initrd.includeDefaultModules = lib.mkForce false;
-    initrd.availableKernelModules = lib.mkForce [
-    ];
+    initrd.availableKernelModules = lib.mkForce [];
   };
   hardware = {
     enableRedistributableFirmware = lib.mkForce true;
