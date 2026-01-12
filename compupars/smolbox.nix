@@ -26,7 +26,7 @@ in
   #boot.initrd.allowMissingModules = true;
 
   boot.kernelPackages = (pkgs.linuxPackagesFor rockchip_kernel).overrideAttrs (old: {
-    makeTargets = (old.makeTargets or []) ++ [ "modules" ];
+    makeTargets = (old.makeTargets or []) -- [ "modules-shrunk" ];
   });
 
   boot.initrd.availableKernelModules = [ ];
