@@ -6,7 +6,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  #networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -19,20 +19,20 @@
   };
 
   # Configure keymap in X11
-  services.xserver.xkb = lib.mkDefault {
-    layout = "de";
-    variant = "";
-  };
+  #services.xserver.xkb = lib.mkDefault {
+   # layout = "de";
+    #variant = "";
+  #};
 
   # Configure console keymap
   console.keyMap = lib.mkDefault "de";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.kesefon = {
-    isNormalUser = true;
-    description = "Kesefon";
-    extraGroups = [ "networkmanager" "wheel" "systemd-journal" ];
-  };
+  #users.users.kesefon = {
+   # isNormalUser = true;
+  #  description = "Kesefon";
+   # extraGroups = [ "networkmanager" "wheel" "systemd-journal" ];
+  #};
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -46,17 +46,17 @@
     git
   ];
 
-  programs.fish.enable = true;
+  #programs.fish.enable = true;
 
-  programs.bash = {
-    interactiveShellInit = ''
-      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-      then
-        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-        exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-      fi
-    '';
-  };
+  #programs.bash = {
+  #  interactiveShellInit = ''
+  #    if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+  #    then
+  #      shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+  #      exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+  #    fi
+  #  '';
+  #};
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
