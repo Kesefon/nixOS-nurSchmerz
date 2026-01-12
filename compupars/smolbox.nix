@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, pkgsKernel, ... }:
+{ config, lib, pkgs, modulesPath, ... }:
 
 {
   imports =
@@ -8,7 +8,7 @@
   networking.hostName = "smolbox";
 
   boot = {
-    kernelPackages = pkgsKernel.linuxPackagesFor (pkgsKernel.callPackage ./rk3588-kernel.nix {});
+    kernelPackages = pkgs.linuxPackagesFor (pkgs.callPackage ./rk3588-kernel.nix {});
     supportedFilesystems = lib.mkForce [
       "vfat"
       "fat32"
