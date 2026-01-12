@@ -28,10 +28,9 @@ in
 
   boot.kernelPackages = (pkgs.linuxPackagesFor rockchip_kernel);
 
-  boot.initrd.availableKernelModules = [ ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.availableKernelModules = lib.mkForce [ ];
+  boot.kernelModules = lib.mkForce [ ];
+  boot.initrd.kernelModules = lib.mkForce [ ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/1b744d03-7367-4163-bfd1-b95cf5316955";
