@@ -1,18 +1,5 @@
 { config, lib, pkgs, modulesPath, ... }:
-let
-  rockchip_kernel = pkgs.buildLinux rec {
-    modDirVersion = "6.1.75";
-    version = "6.1.75-rk";
-    extraMeta.branch = "6.1";
-    src = pkgs.fetchFromGitHub {
-      owner = "Joshua-Riek";
-      repo = "linux-rockchip";
-      rev = "e21cf49ee9a41a02846da050a6930e317bc99b68";
-      hash = "sha256-gAI8BuZDG7hq8MmbCnjwLSKwcYxKsGcyerXlKBTbL+U=";
-    };
-    configfile = ./ubuntu-rockchip-kernel-config;
-  };
-in
+
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
@@ -20,14 +7,37 @@ in
 
   networking.hostName = "smolbox";
 
-  boot.initrd.includeDefaultModules = lib.mkForce false;
-  #boot.initrd.allowMissingModules = true;
+  boot = {
+    kernelPackages = pkgsKernel.linuxPackagesFor (pkgsKernel.callPackage ./rk3588-kernel.nix {});
+    supportedFilesystems = lib.mkForce [
+      "vfat"
+      "fat32"
+      "exfat"
+      "ext4"
+      "btrfs"
+    ];
+    initrd.includeDefaultModules = lib.mkForce false;
+    initrd.availableKernelModules = lib.mkForce [
+      # NVMe
+      "nvme"
 
-  boot.kernelPackages = (pkgs.linuxPackagesFor rockchip_kernel);
+      # SD cards and internal eMMC drives.
+      "mmc_block"
 
-  boot.initrd.availableKernelModules = lib.mkForce [ ];
-  boot.kernelModules = lib.mkForce [ ];
-  boot.initrd.kernelModules = lib.mkForce [ ];
+      # Support USB keyboards, in case the boot fails and we only have
+      # a USB keyboard, or for LUKS passphrase prompt.
+      "hid"
+
+      # For LUKS encrypted root partition.
+      # https://github.com/NixOS/nixpkgs/blob/nixos-23.11/nixos/modules/system/boot/luksroot.nix#L985
+      "dm_mod" # for LVM & LUKS
+      "dm_crypt" # for LUKS
+      "input_leds"
+    ];
+  };
+  hardware = {
+    enableRedistributableFirmware = lib.mkForce true;
+  };
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/1b744d03-7367-4163-bfd1-b95cf5316955";
