@@ -1,6 +1,6 @@
 { config, lib, pkgs, modulesPath, ... }:
 let
-  rockchip_kernel = pkgs.linuxManualConfig rec {
+  rockchip_kernel = pkgs.buildLinux rec {
     modDirVersion = "6.1.75";
     version = "6.1.75-rk";
     extraMeta.branch = "noble";
