@@ -37,7 +37,7 @@
       };
       version = "6.1.75";
       modDirVersion = "6.1.75";
-      defconfig = "rockchip_linux_defconfig";
+      #defconfig = "rockchip_linux_defconfig";
       configfile = ./ubuntu-rockchip-kernel-config;
       ignoreConfigErrors = true;
     };
