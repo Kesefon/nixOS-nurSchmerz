@@ -6,7 +6,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable networking
-  #networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -28,11 +28,11 @@
   console.keyMap = lib.mkDefault "de";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  #users.users.kesefon = {
-   # isNormalUser = true;
-  #  description = "Kesefon";
-   # extraGroups = [ "networkmanager" "wheel" "systemd-journal" ];
-  #};
+  users.users.kesefon = {
+    isNormalUser = true;
+    description = "Kesefon";
+    extraGroups = [ "networkmanager" "wheel" "systemd-journal" ];
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
