@@ -40,7 +40,7 @@
         inherit inputs;
       };
       modules = [
-        ./common/desktop-base.nix
+        #./common/desktop-base.nix
         ./compupars/smolbox.nix
       ];
     };
