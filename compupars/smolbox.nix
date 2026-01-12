@@ -22,10 +22,12 @@ in
 
   networking.hostName = "smolbox";
 
-  #boot.initrd.includeDefaultModules = lib.mkForce false;
+  boot.initrd.includeDefaultModules = lib.mkForce false;
   #boot.initrd.allowMissingModules = true;
 
-  boot.kernelPackages = pkgs.linuxPackagesFor rockchip_kernel;
+  boot.kernelPackages = (pkgs.linuxPackagesFor rockchip_kernel).overrideAttrs (old: {
+    makeTargets = (old.makeTargets or []) ++ [ "modules" ];
+  });
 
   boot.initrd.availableKernelModules = [ ];
   boot.initrd.kernelModules = [ ];
