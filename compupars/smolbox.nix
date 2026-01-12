@@ -13,7 +13,6 @@ let
     };
 
     configfile = ./ubuntu-rockchip-kernel-config;
-    allowImportFromDerivation = true;
   };
 in
 {
