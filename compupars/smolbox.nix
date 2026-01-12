@@ -22,13 +22,6 @@ in
 
   networking.hostName = "smolbox";
 
-  boot.supportedFilesystems = lib.mkForce [
-        "vfat"
-        "fat32"
-        "exfat"
-        "ext4"
-        "btrfs"
-      ];
   boot.initrd.includeDefaultModules = lib.mkForce false;
   boot.initrd.allowMissingModules = true;
 
