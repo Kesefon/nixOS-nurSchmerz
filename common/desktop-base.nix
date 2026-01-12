@@ -22,7 +22,7 @@
   #security.tpm2.tctiEnvironment.enable = true;  # TPM2TOOLS_TCTI and TPM2_PKCS11_TCTI env variables
 
   # Use latest kernel.
-  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+  #boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
   # Enable networking
   networking.networkmanager.enable = true;
