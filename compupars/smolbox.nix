@@ -40,6 +40,7 @@
       #defconfig = "rockchip_linux_defconfig";
       configfile = ./ubuntu-rockchip-kernel-config;
       ignoreConfigErrors = true;
+      allowImportFromDerivation = true;
     };
   });
 
