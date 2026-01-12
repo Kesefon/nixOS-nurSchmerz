@@ -25,9 +25,7 @@ in
   boot.initrd.includeDefaultModules = lib.mkForce false;
   boot.initrd.allowMissingModules = true;
 
-  boot.kernelPackages = (pkgs.linuxPackagesFor rockchip_kernel).override {
-    targets = { modules-shrunk = null; };
-  };
+  boot.kernelPackages = pkgs.linuxPackagesFor rockchip_kernel;
 
   boot.initrd.availableKernelModules = [ ];
   boot.initrd.kernelModules = [ ];
