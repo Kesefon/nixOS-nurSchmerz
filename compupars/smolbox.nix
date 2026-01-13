@@ -17,6 +17,8 @@
     enableRedistributableFirmware = lib.mkForce true;
   };
 
+  powerManagement.cpuFreqGovernor = "ondemand";
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/1b744d03-7367-4163-bfd1-b95cf5316955";
       fsType = "btrfs";
@@ -33,6 +35,11 @@
     { device = "/dev/disk/by-uuid/538E-489C";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
+    };
+  
+  fileSystems."/mnt/data" =
+    { device = "/dev/disk/by-uuid/cc9dffd2-5274-462c-8640-75888788aa7c";
+      fsType = "ext4";
     };
 
   swapDevices = [ ];

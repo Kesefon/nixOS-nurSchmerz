@@ -41,6 +41,11 @@
       };
       modules = [
         ./common/base.nix
+        ./common/nginx.nix
+        ./common/postgresql.nix
+        ./common/jellyfin.nix
+        ./common/komga.nix
+        ./common/immich.nix
         ./compupars/smolbox.nix
       ];
     };
