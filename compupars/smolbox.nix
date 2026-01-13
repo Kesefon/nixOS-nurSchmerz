@@ -3,12 +3,19 @@
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
+      ../mods/base.nix
+      ../mods/cert-in.froggo.garden.nix
+      ../mods/nginx.nix
+      ../mods/postgresql.nix
+      ../mods/jellyfin.nix
+      ../mods/komga.nix
+      ../mods/immich.nix
     ];
 
   networking.hostName = "smolbox";
 
   boot = {
-    kernelPackages = pkgs.linuxPackagesFor (pkgs.callPackage ./rk3588-kernel.nix {});
+    kernelPackages = pkgs.linuxPackagesFor (pkgs.callPackage ../mods/rk3588-kernel/rk3588-kernel.nix {});
     supportedFilesystems = lib.mkForce [];
     initrd.includeDefaultModules = lib.mkForce false;
     initrd.availableKernelModules = lib.mkForce [];

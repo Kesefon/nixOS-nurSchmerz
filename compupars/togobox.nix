@@ -3,6 +3,8 @@
 {
   imports = [
       (modulesPath + "/installer/scan/not-detected.nix")
+      ../mods/desktop-base.nix
+      nix-chuwi-minibook-x.nixosModules.default
     ];
 
   networking.hostName = "togobox";

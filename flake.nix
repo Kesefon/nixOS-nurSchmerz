@@ -24,7 +24,6 @@
         inherit inputs;
       };
       modules = [
-        ./common/desktop-base.nix
         ./compupars/shitbox.nix
       ];
     };
@@ -34,9 +33,7 @@
         inherit inputs;
       };
       modules = [
-        ./common/desktop-base.nix
         ./compupars/togobox.nix
-        nix-chuwi-minibook-x.nixosModules.default
       ];
     };
     nixosConfigurations.smolbox = nixpkgs.lib.nixosSystem {
@@ -45,13 +42,6 @@
         inherit inputs;
       };
       modules = [
-        ./common/base.nix
-        ./common/cert-in.froggo.garden.nix
-        ./common/nginx.nix
-        ./common/postgresql.nix
-        ./common/jellyfin.nix
-        ./common/komga.nix
-        ./common/immich.nix
         ./compupars/smolbox.nix
       ];
     };
