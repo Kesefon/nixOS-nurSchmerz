@@ -17,6 +17,14 @@
       flake = false;
     };
   };
+  nixConfig = {
+    extra-substituters = [
+      "https://kesefon.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "kesefon.cachix.org-1:Z4qoXB2Qz56yg2GyESIatezeFyDKRZSAaJvtEFk32j8="
+    ];
+  };
   outputs = inputs@{ self, nixpkgs, nixos-hardware, nix-chuwi-minibook-x, ssh-keys, ... }: {
     nixosConfigurations.shitbox = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
