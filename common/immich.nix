@@ -29,5 +29,7 @@
         send_timeout       600s;
       ";
     };
+    useACMEHost = "in-froggo-garden";
+    addSSL = true;
   };
 }

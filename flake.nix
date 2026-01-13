@@ -46,6 +46,7 @@
       };
       modules = [
         ./common/base.nix
+        ./common/cert-in.froggo.garden.nix
         ./common/nginx.nix
         ./common/postgresql.nix
         ./common/jellyfin.nix

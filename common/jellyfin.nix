@@ -11,5 +11,7 @@
       proxyPass = "http://localhost:8096";
       proxyWebsockets = true;
     };
+    useACMEHost = "in-froggo-garden";
+    addSSL = true;
   };
 }
