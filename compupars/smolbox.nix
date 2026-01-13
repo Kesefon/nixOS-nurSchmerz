@@ -14,6 +14,14 @@
 
   networking.hostName = "smolbox";
 
+  system.autoUpgrade = {
+    allowReboot = true;
+    rebootWindow = {
+      lower = "05:00";
+      upper = "08:00";
+    };
+  };
+
   boot = {
     kernelPackages = pkgs.linuxPackagesFor (pkgs.callPackage ../mods/rk3588-kernel/rk3588-kernel.nix {});
     supportedFilesystems = lib.mkForce [];
