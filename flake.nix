@@ -11,8 +11,13 @@
     nix-chuwi-minibook-x.url = "github:kesefon/nix-chuwi-minibook-x";
     nix-chuwi-minibook-x.inputs.nixpkgs.follows = "nixpkgs";
     nix-chuwi-minibook-x.inputs.nixos-hardware.follows = "nixos-hardware";
+
+    ssh-keys = {
+      url = "https://github.com/kesefon.keys";
+      flake = false;
+    };
   };
-  outputs = inputs@{ self, nixpkgs, nixos-hardware, nix-chuwi-minibook-x, ... }: {
+  outputs = inputs@{ self, nixpkgs, nixos-hardware, nix-chuwi-minibook-x, ssh-keys, ... }: {
     nixosConfigurations.shitbox = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {

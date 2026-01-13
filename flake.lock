@@ -60,7 +60,20 @@
         "nix-chuwi-minibook-x": "nix-chuwi-minibook-x",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
+        "ssh-keys": "ssh-keys",
         "zen-browser": "zen-browser"
+      }
+    },
+    "ssh-keys": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-ZtMiE0tisC7+xKVYnsoq4wS/N5YLsa0Yivueswo2zqs=",
+        "type": "file",
+        "url": "https://github.com/kesefon.keys"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/kesefon.keys"
       }
     },
     "zen-browser": {

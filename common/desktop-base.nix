@@ -35,6 +35,19 @@
   };
   services.desktopManager.plasma6.enable = true;
 
+  fonts = {
+    packages = [
+      pkgs.noto-fonts-emoji-blob-bin
+      pkgs.comic-mono
+      pkgs.corefonts
+      pkgs.b612
+    ];
+    fontconfig.defaultFonts = {
+      monospace = [ "Comic Mono" ];
+      emoji = [ "Blobmoji" "Noto Color Emoji" ];
+    };
+  };
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;

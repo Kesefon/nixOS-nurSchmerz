@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   # Bootloader.
@@ -7,7 +7,12 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    startWhenNeeded = true;
+    settings.PermitRootLogin = "no";
+    settings.PasswordAuthentication = false;
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -27,6 +32,7 @@
     isNormalUser = true;
     description = "Kesefon";
     extraGroups = [ "networkmanager" "wheel" "systemd-journal" ];
+    openssh.authorizedKeys.keyFiles = [ inputs.ssh-keys.outPath ];
   };
 
   # Allow unfree packages
@@ -39,6 +45,8 @@
     pciutils
     file
     git
+    tree
+    htop
   ];
 
   programs.fish.enable = true;
