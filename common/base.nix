@@ -5,6 +5,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  system.autoUpgrade = {
+    enable = true;
+    upgrade = false;
+    flake = "github:kesefon/nixOS-nurSchmerz";
+    runGarbageCollection = true;
+  };
+
   # Enable networking
   networking.networkmanager.enable = true;
   services.openssh = {
