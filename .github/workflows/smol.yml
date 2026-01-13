@@ -17,4 +17,3 @@ jobs:
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - run: nix build -L .#nixosConfigurations.smolbox.config.system.build.toplevel
       continue-on-error: true
-    - run: nix-shell --run "echo OK"
