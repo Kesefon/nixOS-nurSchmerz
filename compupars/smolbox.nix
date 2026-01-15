@@ -9,6 +9,7 @@
       ../mods/postgresql.nix
       ../mods/jellyfin.nix
       ../mods/komga.nix
+      ../mods/mloader.nix
       ../mods/immich.nix
     ];
 
