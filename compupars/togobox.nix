@@ -1,10 +1,10 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, inputs, ... }:
 
 {
   imports = [
       (modulesPath + "/installer/scan/not-detected.nix")
       ../mods/desktop-base.nix
-      nix-chuwi-minibook-x.nixosModules.default
+      inputs.nix-chuwi-minibook-x.nixosModules.default
     ];
 
   networking.hostName = "togobox";
