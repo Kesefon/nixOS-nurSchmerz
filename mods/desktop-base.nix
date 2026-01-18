@@ -81,6 +81,7 @@
     krita
     onlyoffice-desktopeditors
     xournalpp
+    banana-cursor
   ];
 
   programs.steam = {
