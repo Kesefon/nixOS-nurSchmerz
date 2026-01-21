@@ -8,7 +8,7 @@
   system.autoUpgrade = {
     enable = true;
     upgrade = false;
-    flake = "github:kesefon/nixOS-nurSchmerz";
+    flake = "github:kesefon/nixOS-nurSchmerz/rolling";
     runGarbageCollection = true;
   };
 

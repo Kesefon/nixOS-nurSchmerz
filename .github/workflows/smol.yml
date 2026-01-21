@@ -1,6 +1,5 @@
-name: "Build for Cache"
+name: "Build for Cache (arm64)"
 on:
-  pull_request:
   push:
 jobs:
   smol:
