@@ -15,6 +15,8 @@
 
   networking.hostName = "smolbox";
 
+  networking.wg-quick.interfaces.froggo.configFile = "/mnt/data/secrets/wireguard.conf";
+
   system.autoUpgrade = {
     allowReboot = true;
     rebootWindow = {
