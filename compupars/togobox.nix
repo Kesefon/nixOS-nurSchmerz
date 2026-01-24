@@ -11,7 +11,7 @@
 
   services.xserver.xkb = {
     layout = "us";
-    variant = "";
+    variant = "de_se_fi";
   };
   console.keyMap = "us";
 
