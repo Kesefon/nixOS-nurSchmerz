@@ -11,6 +11,7 @@
       ../mods/komga.nix
       ../mods/mloader.nix
       ../mods/immich.nix
+      ../mods/blocky.nix
     ];
 
   networking.hostName = "smolbox";
