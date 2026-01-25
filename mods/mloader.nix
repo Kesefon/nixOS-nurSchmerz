@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 let
   mloader-fork = (pkgs.callPackage ./mloader-fork.nix {});
 

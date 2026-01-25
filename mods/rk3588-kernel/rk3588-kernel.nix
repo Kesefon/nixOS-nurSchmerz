@@ -10,7 +10,6 @@
 { fetchFromGitHub
 , linuxManualConfig
 , ubootTools
-, fetchurl
 , ...
 }:
 let
