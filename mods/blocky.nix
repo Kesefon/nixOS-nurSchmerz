@@ -11,7 +11,7 @@
         "sdns://AgcAAAAAAAAAEVsyMDAxOjY3Yzo5MzA6OjFdABF3aWtpbWVkaWEtZG5zLm9yZwovZG5zLXF1ZXJ5" # Wikimedia IPv6
         "sdns://AwcAAAAAAAAACzUuOS4xNjQuMTEyBQIPDwJWFmRuczMuZGlnaXRhbGNvdXJhZ2UuZGU" # digitalcourage IPv4
         "sdns://AwcAAAAAAAAAFVsyYTAxOjRmODoyNTE6NTU0OjoyXQUCDw8CVhZkbnMzLmRpZ2l0YWxjb3VyYWdlLmRl" # digitalcourage IPv6
-        "sdns://AQMAAAAAAAAAEjk0LjE0MC4xNC4xNDA6NTQ0MyC16ETWuDo-PhJo62gfvqcN48X6aNvWiBQdvy7AZrLa-iUyLmRuc2NyeXB0LnVuZmlsdGVyZWQubnMxLmFkZ3VhcmQuY29t" # Adguard unfiltered
+        "https://unfiltered.adguard-dns.com/dns-query"
         "sdns://AwMAAAAAAAAACzE5NC4yNDIuMi4yAA9kbnMubXVsbHZhZC5uZXQ" # Mullvad IPv4
         "sdns://AwMAAAAAAAAADlsyYTA3OmUzNDA6OjJdAA9kbnMubXVsbHZhZC5uZXQ" # Mullvad IPv6
         "sdns://AwMAAAAAAAAACjUuMS42Ni4yNTUADWRvdC5mZm11Yy5uZXQ" # Freifunk München IPv4
