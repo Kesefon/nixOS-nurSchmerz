@@ -42,9 +42,12 @@
       pkgs.corefonts
       pkgs.b612
     ];
-    fontconfig.defaultFonts = {
-      monospace = [ "Comic Mono" ];
-      emoji = [ "Blobmoji" "Noto Color Emoji" ];
+    fontconfig = {
+      useEmbeddedBitmaps = true;
+      defaultFonts = {
+        monospace = [ "Comic Mono" ];
+        emoji = [ "Blobmoji" "Noto Color Emoji" ];
+      };
     };
   };
 
