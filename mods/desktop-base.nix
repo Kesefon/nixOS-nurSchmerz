@@ -76,6 +76,7 @@
   environment.systemPackages = with pkgs; [
     spotify
     kdePackages.kate
+    kdePackages.kdevelop
     discord
     mpv
     krita
