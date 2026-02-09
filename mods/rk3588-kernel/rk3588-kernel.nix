@@ -49,6 +49,6 @@ in
   configfile = ./rk35xx_vendor_config;
   config = import ./rk35xx_vendor_config.nix;
 }).overrideAttrs (old: {
-  name = "k"; # dodge uboot length limits
+  name = "rk3588-kernel";
   nativeBuildInputs = old.nativeBuildInputs ++ [ ubootTools ];
 })
