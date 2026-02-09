@@ -11,6 +11,7 @@
     flake = "github:kesefon/nixOS-nurSchmerz/rolling";
     runGarbageCollection = true;
   };
+  nix.gc.automatic = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
