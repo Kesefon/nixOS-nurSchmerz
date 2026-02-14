@@ -53,5 +53,14 @@
         ./compupars/smolbox.nix
       ];
     };
+    nixosConfigurations.cloudbox = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      specialArgs = {
+        inherit inputs;
+      };
+      modules = [
+        ./compupars/cloudbox.nix
+      ];
+    };
   };
 }
