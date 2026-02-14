@@ -24,6 +24,7 @@
   };
 
   boot.initrd.kernelModules = [ "virtio_gpu" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "virtio_pci" "virtio_scsi" "usbhid" "sr_mod" ];
   boot.kernelParams = [ "console=tty" ];
 
   fileSystems."/" =
