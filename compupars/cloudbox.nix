@@ -27,8 +27,8 @@
   boot.kernelParams = [ "console=tty" ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/e686ffd9-f21d-4c77-8960-5f3b80fe068f";
-      fsType = "btrfs";
+    { device = "/dev/disk/by-uuid/e1faf9aa-5d79-490e-89df-265ad6d0ae23";
+      fsType = "ext4";
     };
 
   fileSystems."/boot" =
