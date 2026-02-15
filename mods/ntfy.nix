@@ -14,6 +14,8 @@
     };
   };
 
+  systemd.services.ntfy-sh.serviceConfig.ReadWritePaths = [ "/mnt/data/ntfy/" ];
+
   systemd.tmpfiles.settings = {
     "10-ntfy-data" = {
       "/mnt/data/ntfy" = {
