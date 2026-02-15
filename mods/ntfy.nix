@@ -20,14 +20,7 @@
         d = {
           user = "ntfy-sh";
           group = "ntfy-sh";
-          mode = "660";
-        };
-      };
-      "/mnt/data/ntfy/attachmments" = {
-        d = {
-          user = "ntfy-sh";
-          group = "ntfy-sh";
-          mode = "660";
+          mode = "770";
         };
       };
     };
