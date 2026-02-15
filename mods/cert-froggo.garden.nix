@@ -6,7 +6,8 @@
     certs."froggo-garden" = {
       credentialsFile = /mnt/data/secrets/cloudflare-dns-creds;
       dnsProvider = "cloudflare";
-      domain = "*.froggo.garden";
+      domain = "froggo.garden";
+      extraDomainNames = [ "*.froggo.garden" ]
     };
     defaults.email = "acme@froggo.garden";
   };
