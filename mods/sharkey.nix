@@ -17,7 +17,7 @@
   users.users.sharkey =  {
     sharkey = {
       isSystemUser = true;
-      group = sharkey;
+      group = "sharkey";
     };
   };
 
