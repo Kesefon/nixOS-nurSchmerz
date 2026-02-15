@@ -28,7 +28,7 @@
         d = {
           user = "sharkey";
           group = "sharkey";
-          mode = "660";
+          mode = "770";
         };
       };
     };
