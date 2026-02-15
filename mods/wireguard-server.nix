@@ -5,8 +5,7 @@
 
   services.nginx.streamConfig = "
     server {
-      listen 127.0.0.1:80 udp reuseport;
-      proxy_timeout 20s;
+      listen 80 udp;
       proxy_pass 192.168.0.1:8095;
     }
   ";
