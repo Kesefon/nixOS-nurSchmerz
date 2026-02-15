@@ -20,7 +20,7 @@
         d = {
           user = "ntfy-sh";
           group = "ntfy-sh";
-          mode = "400";
+          mode = "660";
         };
       };
     };
