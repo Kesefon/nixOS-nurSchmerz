@@ -10,6 +10,21 @@
     };
   };
 
+  users.groups.sharkey = {
+    sharkey = { };
+  };
+
+  users.users.sharkey =  {
+    sharkey = {
+      isSystemUser = true;
+      group = sharkey;
+    };
+  };
+
+  systemd.services.ntfy-sh.serviceConfig.User = "sharkey";
+
+  systemd.services.ntfy-sh.serviceConfig.Group = "sharkey";
+
   systemd.tmpfiles.settings = {
     "10-sharkey-media" = {
       "/mnt/data/sharkey/media" = {
