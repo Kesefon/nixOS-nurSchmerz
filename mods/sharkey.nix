@@ -11,7 +11,6 @@
   };
 
   users.groups.sharkey = {
-    sharkey = { };
   };
 
   users.users.sharkey =  {
