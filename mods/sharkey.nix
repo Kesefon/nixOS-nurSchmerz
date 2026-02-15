@@ -15,10 +15,8 @@
   };
 
   users.users.sharkey =  {
-    sharkey = {
-      isSystemUser = true;
-      group = "sharkey";
-    };
+    isSystemUser = true;
+    group = "sharkey";
   };
 
   systemd.services.sharkey.serviceConfig.User = "sharkey";
