@@ -44,6 +44,6 @@
       proxyWebsockets = true;
     };
     useACMEHost = "in-froggo-garden";
-    addSSL = true;
+    forceSSL = true;
   };
 }

@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   services.immich = {
@@ -11,7 +11,7 @@
 
   services.nginx.virtualHosts."pics.in.froggo.garden" = {
     locations."/" = {
-      proxyPass = "http://localhost:8098";
+      proxyPass = "http://localhost:${toString config.services.immich.port}";
       proxyWebsockets = true;
       extraConfig = "
 
@@ -31,6 +31,6 @@
       ";
     };
     useACMEHost = "in-froggo-garden";
-    addSSL = true;
+    forceSSL = true;
   };
 }

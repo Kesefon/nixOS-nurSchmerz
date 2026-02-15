@@ -31,8 +31,9 @@
   services.nginx.virtualHosts."ntfy.froggo.garden" = {
     locations."/" = {
       proxyPass = "http://localhost${toString config.services.ntfy-sh.settings.listen-http}";
+      proxyWebsockets = true;
     };
     useACMEHost = "froggo-garden";
-    addSSL = true;
+    forceSSL = true;
   };
 }

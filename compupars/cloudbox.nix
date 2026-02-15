@@ -9,11 +9,10 @@
       ../mods/postgresql.nix
       ../mods/sharkey.nix
       ../mods/ntfy.nix
+      ../mods/wireguard-server.nix
     ];
 
   networking.hostName = "cloudbox";
-
-  networking.wg-quick.interfaces.froggo.configFile = "/mnt/data/secrets/wireguard.conf";
 
   system.autoUpgrade = {
     allowReboot = true;

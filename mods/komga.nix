@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   services.komga = {
@@ -9,9 +9,9 @@
 
   services.nginx.virtualHosts."read.in.froggo.garden" = {
     locations."/" = {
-      proxyPass = "http://localhost:8097";
+      proxyPass = "http://localhost:${toString config.services.komga.settings.server.port}";
     };
     useACMEHost = "in-froggo-garden";
-    addSSL = true;
+    forceSSL = true;
   };
 }
