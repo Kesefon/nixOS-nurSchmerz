@@ -26,6 +26,19 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "virtio_pci" "virtio_scsi" "usbhid" "sr_mod" ];
   boot.kernelParams = [ "console=tty" ];
 
+  networking.networkmanager.enable = false;
+  systemd.network.enable = true;
+  systemd.network.networks."10-wan" = {
+    matchConfig.Name = "enp1s0";
+    networkConfig.DHCP = "ipv4";
+    address = [
+      "2a01:4f8:c012:431::1/64"
+    ];
+    routes = [
+      { routeConfig.Gateway = "fe80::1"; }
+    ];
+  };
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/e1faf9aa-5d79-490e-89df-265ad6d0ae23";
       fsType = "ext4";

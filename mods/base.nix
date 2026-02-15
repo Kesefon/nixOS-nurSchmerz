@@ -17,7 +17,7 @@
   nix.gc.automatic = true;
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = lib.mkDefault true;
   services.openssh = {
     enable = true;
     startWhenNeeded = true;
