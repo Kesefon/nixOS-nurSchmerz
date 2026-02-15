@@ -21,9 +21,9 @@
     };
   };
 
-  systemd.services.ntfy-sh.serviceConfig.User = "sharkey";
+  systemd.services.sharkey.serviceConfig.User = "sharkey";
 
-  systemd.services.ntfy-sh.serviceConfig.Group = "sharkey";
+  systemd.services.sharkey.serviceConfig.Group = "sharkey";
 
   systemd.tmpfiles.settings = {
     "10-sharkey-media" = {
