@@ -10,6 +10,7 @@
       ../mods/sharkey.nix
       ../mods/ntfy.nix
       ../mods/wireguard-server.nix
+      ../mods/tuwunel.nix
     ];
 
   networking.hostName = "cloudbox";
