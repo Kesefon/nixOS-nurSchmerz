@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   services.sharkey = {
@@ -9,6 +9,8 @@
       mediaDirectory = "/mnt/data/sharkey/media";
     };
   };
+
+  environment.systemPackages = [ pkgs.ffmpeg ];
 
   users.groups.sharkey = {
   };
