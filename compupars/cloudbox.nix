@@ -11,6 +11,7 @@
       ../mods/ntfy.nix
       ../mods/wireguard-server.nix
       ../mods/tuwunel.nix
+      ../mods/element.nix
     ];
 
   networking.hostName = "cloudbox";
