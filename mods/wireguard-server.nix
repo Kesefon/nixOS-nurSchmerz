@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   networking.nat = {
@@ -72,6 +72,8 @@
       ];
     };
   };
+
+  networking.firewall.allowedUDPPorts = [ config.systemd.network.netdevs."50-wg0".wireguardConfig.ListenPort ];
 
   systemd.tmpfiles.settings = {
     "10-wireguard-keys" = {
