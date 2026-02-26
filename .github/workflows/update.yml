@@ -13,8 +13,8 @@ jobs:
     - uses: cachix/install-nix-action@v25
       with:
         nix_path: nixpkgs=channel:nixos-25.11
-    - run: nix flake update
-    - run: nix flake check
+    - run: nix flake update --accept-flake-config
+    - run: nix flake check --accept-flake-config
     - name: "Push update"
       run : |
         git checkout -B rolling
