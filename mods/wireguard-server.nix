@@ -47,7 +47,6 @@
             "fd42::1/128"
             "10.10.10.1/32"
           ];
-          PersistentKeepalive = 15;
         }
         {
           # lptp
@@ -57,7 +56,6 @@
             "fd42::2/128"
             "10.10.10.2/32"
           ];
-          PersistentKeepalive = 15;
         }
         {
           # in.froggo.garden
@@ -67,7 +65,6 @@
             "fd42::3/128"
             "10.10.10.4/32"
           ];
-          PersistentKeepalive = 15;
         }
       ];
     };
