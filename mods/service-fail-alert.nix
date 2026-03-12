@@ -5,7 +5,7 @@
 let
   service-fail-alert = pkgs.writeScript "service-fail-alert"
     ''
-      #!/bin/env nix-shell
+      #!/usr/bin/env nix-shell
       #! nix-shell -i bash --pure
       #! nix-shell -p bash cacert curl hostname
       curl \
