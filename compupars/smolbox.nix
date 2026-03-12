@@ -25,6 +25,9 @@
       upper = "08:00";
     };
   };
+  # Some updates require compiling huge programs which is a horrible idea on this teeny tiny SBC
+  # Just kill the update if that happens
+  systemd.services."nixos-upgrade".serviceConfig.MemoryMax = "5G";
 
   boot = {
     kernelPackages = pkgs.linuxPackages_testing;
