@@ -21,6 +21,7 @@ in
   config.systemd.services."service-fail-alert@" = {
     description = "Send notification on service failure";
     onFailure = lib.mkForce [];
+    path = [ pkgs.nix ];
     serviceConfig = {
       ExecStart = "${service-fail-alert} %i";
       Type = "oneshot";
