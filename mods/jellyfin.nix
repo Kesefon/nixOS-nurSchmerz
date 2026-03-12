@@ -6,28 +6,28 @@
     dataDir = "/mnt/data/jellyfin";
     hardwareAcceleration = {
       enable = true;
-      type = "rkmpp";
+      type = "v4l2m2m";
       device = "/dev/dri/renderD128";
     };
     forceEncodingConfig = true;
     transcoding = {
       hardwareEncodingCodecs = {
-        hevc = true;
+        hevc = false;
         av1 = false;
       };
       hardwareDecodingCodecs = {
-        vp9 = true;
+        vp9 = false;
         vp8 = true;
         hevc10bit = true;
         hevc = true;
         h264 = true;
         av1 = true;
       };
-      enableHardwareEncoding = true;
+      enableHardwareEncoding = false;
     };
   };
 
-  services.udev.extraRules = ''
+  /*services.udev.extraRules = ''
     KERNEL=="mpp_service", MODE="0660", GROUP="video"
     KERNEL=="rga", MODE="0660", GROUP="video"
     KERNEL=="system", MODE="0666", GROUP="video"
@@ -36,7 +36,7 @@
     KERNEL=="system-uncached-dma32", MODE="0666", GROUP="video" RUN+="${pkgs.coreutils}/bin/chmod a+rw /dev/dma_heap"
   '';
   users.users.jellyfin.extraGroups = [ "render" "video" ];
-  environment.systemPackages = [ pkgs.armbian-firmware ];
+  environment.systemPackages = [ pkgs.armbian-firmware ];*/
 
   services.nginx.virtualHosts."watch.in.froggo.garden" = {
     locations."/" = {

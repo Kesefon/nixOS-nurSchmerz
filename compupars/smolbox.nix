@@ -27,7 +27,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackagesFor (pkgs.callPackage ../mods/rk3588-kernel/rk3588-kernel.nix {});
+    kernelPackages = pkgs.linuxPackages_testing;
     supportedFilesystems = lib.mkForce [];
     initrd.includeDefaultModules = lib.mkForce false;
     initrd.availableKernelModules = lib.mkForce [];
