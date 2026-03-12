@@ -5,12 +5,10 @@
 let
   service-fail-alert = pkgs.writeScript "service-fail-alert"
     ''
-      #!/usr/bin/env nix-shell
-      #! nix-shell -i bash --pure
-      #! nix-shell -p bash cacert curl hostname
-      curl \
+      #!/bin/sh
+      ${pkgs.curl}/bin/curl \
         -H "Authorization: Bearer $(cat ${config.age.secrets.ntfy-token.path})" \
-        -d "$1 failed on $(hostname)" \
+        -d "$1 failed on $(${pkgs.hostname}/bin/hostname)" \
         https://ntfy.froggo.garden/service-fail-alert
     '';
 in
@@ -21,7 +19,6 @@ in
   config.systemd.services."service-fail-alert@" = {
     description = "Send notification on service failure";
     onFailure = lib.mkForce [];
-    path = [ pkgs.nix ];
     serviceConfig = {
       ExecStart = "${service-fail-alert} %i";
       Type = "oneshot";
