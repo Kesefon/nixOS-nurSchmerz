@@ -3,7 +3,7 @@
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
-      ../mods/base.nix
+      ../mods/server-base.nix
       ../mods/cert-in.froggo.garden.nix
       ../mods/nginx.nix
       ../mods/postgresql.nix

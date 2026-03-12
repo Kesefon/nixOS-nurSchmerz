@@ -12,6 +12,12 @@
     nix-chuwi-minibook-x.inputs.nixpkgs.follows = "nixpkgs";
     nix-chuwi-minibook-x.inputs.nixos-hardware.follows = "nixos-hardware";
 
+    agenix.url = "github:yaxitech/ragenix";
+    # optional, not necessary for the module
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
+    # optionally choose not to download darwin deps (saves some resources on Linux)
+    agenix.inputs.darwin.follows = "";
+
     ssh-keys = {
       url = "https://github.com/kesefon.keys";
       flake = false;
@@ -25,7 +31,7 @@
       "kesefon.cachix.org-1:Z4qoXB2Qz56yg2GyESIatezeFyDKRZSAaJvtEFk32j8="
     ];
   };
-  outputs = inputs@{ nixpkgs, ... }: {
+  outputs = inputs@{ nixpkgs, agenix, ... }: {
     nixosConfigurations.shitbox = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
@@ -51,6 +57,7 @@
       };
       modules = [
         ./compupars/smolbox.nix
+        agenix.nixosModules.default
       ];
     };
     nixosConfigurations.cloudbox = nixpkgs.lib.nixosSystem {
@@ -60,6 +67,7 @@
       };
       modules = [
         ./compupars/cloudbox.nix
+        agenix.nixosModules.default
       ];
     };
   };
