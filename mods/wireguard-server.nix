@@ -1,8 +1,107 @@
-{ ... }:
+{ config, ... }:
 
 {
-  # We use port 80 to avoid strict firewalls in public wifis
-  networking.wg-quick.interfaces.froggo.configFile = "/mnt/data/secrets/wireguard.conf";
+  networking.nat = {
+    enable = true;
+    enableIPv6 = true;
+    externalInterface = "enp1s0";
+    internalInterfaces = [ "wg0" ];
+  };
 
-  networking.firewall.allowedUDPPorts = [ 80 ];
+  systemd.network = {
+    networks."50-wg0" = {
+      matchConfig.Name = "wg0";
+
+      address = [
+        "fd42::/112"
+        "10.10.10.3/24"
+      ];
+
+      networkConfig = {
+        IPv4Forwarding = true;
+        IPv6Forwarding = true;
+      };
+    };
+
+    netdevs."50-wg0" = {
+      netdevConfig = {
+        Kind = "wireguard";
+        Name = "wg0";
+      };
+
+      wireguardConfig = {
+        ListenPort = 80;
+
+        # ensure file is readable by `systemd-network` user
+        PrivateKeyFile = "/mnt/data/secrets/wireguard/priv-key";
+
+        # Automatically create routes for everything in AllowedIPs,
+        RouteTable = "main";
+      };
+      wireguardPeers = [
+        {
+          # xperia
+          PublicKey = "umvZHRYwqrpiLgz3XieZ2zAJws391BmVVtUrmzyc0BY=";
+          PresharedKeyFile = "/mnt/data/secrets/wireguard/preshared-xperia";
+          AllowedIPs = [
+            "fd42::1/128"
+            "10.10.10.1/32"
+          ];
+        }
+        {
+          # lptp
+          PublicKey = "n40bUSYJNZNGrPQ7RW7ikRWOWu1iJsXQ4vSqjs3k/gE=";
+          PresharedKeyFile = "/mnt/data/secrets/wireguard/preshared-lptp";
+          AllowedIPs = [
+            "fd42::2/128"
+            "10.10.10.2/32"
+          ];
+        }
+        {
+          # in.froggo.garden
+          PublicKey = "ZRJkomSxF1AihG2l3UuANh/+ovJVgoJBZAAb4wRDuWE=";
+          PresharedKeyFile = "/mnt/data/secrets/wireguard/preshared-in-froggo";
+          AllowedIPs = [
+            "fd42::3/128"
+            "10.10.10.4/32"
+          ];
+        }
+      ];
+    };
+  };
+
+  networking.firewall.allowedUDPPorts = [ config.systemd.network.netdevs."50-wg0".wireguardConfig.ListenPort ];
+
+  systemd.tmpfiles.settings = {
+    "10-wireguard-keys" = {
+      "/mnt/data/secrets/wireguard/priv-key" = {
+        f = {
+          user = "systemd-network";
+          group = "systemd-network";
+          mode = "640";
+        };
+      };
+      "/mnt/data/secrets/wireguard/preshared-xperia" = {
+        f = {
+          user = "systemd-network";
+          group = "systemd-network";
+          mode = "640";
+        };
+      };
+      "/mnt/data/secrets/wireguard/preshared-lptp" = {
+        f = {
+          user = "systemd-network";
+          group = "systemd-network";
+          mode = "640";
+        };
+      };
+      "/mnt/data/secrets/wireguard/preshared-in-froggo" = {
+        f = {
+          user = "systemd-network";
+          group = "systemd-network";
+          mode = "640";
+        };
+      };
+    };
+  };
 }
