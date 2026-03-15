@@ -31,9 +31,7 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_testing;
-    supportedFilesystems = lib.mkForce [];
-    initrd.includeDefaultModules = lib.mkForce false;
-    initrd.availableKernelModules = lib.mkForce [];
+    initrd.availableKernelModules = [ "nvme" "usb_storage" ];
   };
   hardware = {
     enableRedistributableFirmware = lib.mkForce true;
