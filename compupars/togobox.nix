@@ -24,7 +24,7 @@
   boot.loader.systemd-boot.consoleMode = "0"; # wrong orientation but at least you can read the entries
 
   hardware.chuwi-minibook-x = {
-    mountMatrix = "0,-1,0;1,0,0;0,0,1";
+    mountMatrix = "1,0,0;0,1,0;0,0,1";
     tabletMode.enable = true;
   };
   environment.systemPackages = with pkgs; [
