@@ -27,7 +27,7 @@
         allowlists.ads = [
           ''|
 *.dc-telemetry.net''
-        ]
+        ];
         clientGroupsBlock.default = [ "ads" ];
       };
       conditional = {
