@@ -13,10 +13,14 @@
     nix-chuwi-minibook-x.inputs.nixos-hardware.follows = "nixos-hardware";
 
     agenix.url = "github:yaxitech/ragenix";
-    # optional, not necessary for the module
     agenix.inputs.nixpkgs.follows = "nixpkgs";
-    # optionally choose not to download darwin deps (saves some resources on Linux)
-    agenix.inputs.darwin.follows = "";
+
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    plasma-manager.url = "github:nix-community/plasma-manager";
+    plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
+    plasma-manager.inputs.home-manager.follows = "home-manager";
 
     ssh-keys = {
       url = "https://github.com/kesefon.keys";

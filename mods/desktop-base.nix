@@ -4,6 +4,7 @@
   imports = [
     ./zen.nix
     ./base.nix
+    ./home-manager.nix
   ];
 
   # Enable OpenGL/Vulkan
