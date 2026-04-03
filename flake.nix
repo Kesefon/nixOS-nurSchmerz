@@ -40,6 +40,7 @@
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs;
+        globals = import ./globals.nix;
       };
       modules = [
         ./compupars/shitbox.nix
@@ -49,6 +50,7 @@
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs;
+        globals = import ./globals.nix;
       };
       modules = [
         ./compupars/togobox.nix
@@ -58,6 +60,7 @@
       system = "aarch64-linux";
       specialArgs = {
         inherit inputs;
+        globals = import ./globals.nix;
       };
       modules = [
         ./compupars/smolbox.nix
@@ -68,6 +71,7 @@
       system = "aarch64-linux";
       specialArgs = {
         inherit inputs;
+        globals = import ./globals.nix;
       };
       modules = [
         ./compupars/cloudbox.nix

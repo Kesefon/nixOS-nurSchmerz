@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, lib, inputs, globals, ... }:
 
 {
   # Bootloader.
@@ -39,9 +39,9 @@
   console.keyMap = lib.mkDefault "de";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.kesefon = {
+  users.users."${globals.userinfo.username}" = {
     isNormalUser = true;
-    description = "Kesefon";
+    description = "${globals.userinfo.name}";
     extraGroups = [ "networkmanager" "wheel" "systemd-journal" ];
     openssh.authorizedKeys.keyFiles = [ inputs.ssh-keys.outPath ];
   };
