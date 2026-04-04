@@ -126,6 +126,26 @@
         "type": "github"
       }
     },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775143651,
+        "narHash": "sha256-S0RqAyDPMTcv9vASMaE8eY1QexFysAOdnxUxFHIPOyE=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "d166a078541982a76f14d3e06e9665fa5c9ed85e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "nix-chuwi-minibook-x": {
       "inputs": {
         "nixos-hardware": [
@@ -181,12 +201,37 @@
         "type": "github"
       }
     },
+    "plasma-manager": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1774915545,
+        "narHash": "sha256-COT4l/+ZddGBvrDVfPf7MEOJxV8EDKame6/aRnNIKcY=",
+        "owner": "nix-community",
+        "repo": "plasma-manager",
+        "rev": "f3177b3c69fb3f03201098d7fe8ab6422cce7fc1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "plasma-manager",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "home-manager": "home-manager_2",
         "nix-chuwi-minibook-x": "nix-chuwi-minibook-x",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
+        "plasma-manager": "plasma-manager",
         "ssh-keys": "ssh-keys",
         "zen-browser": "zen-browser"
       }

@@ -1,9 +1,10 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, globals, ... }:
 
 {
   imports = [
     ./zen.nix
     ./base.nix
+    ./home-manager.nix
   ];
 
   # Enable OpenGL/Vulkan
@@ -65,10 +66,8 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.kesefon = {
-    isNormalUser = true;
-    description = "Kesefon";
-    extraGroups = [ "networkmanager" "wheel" "tss" "systemd-journal" ];
+  users.users."${globals.userinfo.username}" = {
+    extraGroups = [ "tss" ];
   };
 
   # List packages installed in system profile. To search, run:
