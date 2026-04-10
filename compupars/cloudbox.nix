@@ -29,6 +29,7 @@
   boot.kernelParams = [ "console=tty" ];
 
   networking.networkmanager.enable = false;
+  networking.useNetworkd = true;
   systemd.network = {
     enable = true;
 
