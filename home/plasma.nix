@@ -97,9 +97,11 @@
         floating = false;
         height = 20;
         hiding = "windowsgobelow";
-        lengthMode = "fit";
         location = "top";
-        offset = 370;
+        lengthMode = "custom";
+        minLength = 0;
+        maxLength = 500;
+        offset = 140;
         opacity = "translucent";
         widgets = [
           "org.kde.plasma.systemtray"
