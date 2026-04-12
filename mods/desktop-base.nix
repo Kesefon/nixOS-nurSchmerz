@@ -84,8 +84,6 @@
     banana-cursor
   ];
 
-  virtualisation.waydroid.enable = true;
-
   programs.steam = {
     localNetworkGameTransfers.openFirewall = true;
     enable = true;

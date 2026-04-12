@@ -31,6 +31,8 @@
     maliit-keyboard
   ];
 
+  virtualisation.waydroid.enable = true;
+
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
