@@ -12,6 +12,7 @@
       ../mods/mloader.nix
       ../mods/immich.nix
       ../mods/blocky.nix
+      ../mods/tandoor.nix
     ];
 
   networking.hostName = "smolbox";
