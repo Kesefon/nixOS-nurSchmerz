@@ -6,5 +6,6 @@
     ./plasma.nix
     ./fonts.nix
     ./git.nix
+    ./fish.nix
   ];
 }
