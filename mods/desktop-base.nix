@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./zen.nix
     ./base.nix
     ./home-manager.nix
   ];
