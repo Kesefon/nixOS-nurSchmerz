@@ -1,4 +1,9 @@
+{pkgs, ...}:
 {
+  home.packages = with pkgs; [
+    comic-mono
+    banana-cursor
+  ];
   programs.plasma = {
     enable = true;
     input = {
