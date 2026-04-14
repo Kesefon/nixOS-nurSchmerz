@@ -149,6 +149,7 @@
       baloofilerc."Basic Settings".Indexing-Enabled = false;
       dolphinrc.General.ConfirmClosingMultipleTabs = false;
       dolphinrc.General.RememberOpenedTabs = false;
+      dolphinrc.General.GlobalViewProps = false;
        #TODO Ctrl+F for filter in dolphin
       kcminputrc.Mouse.XLbInptLeftHanded = true;
       kdeglobals.General.AccentColor = "255,0,153";
