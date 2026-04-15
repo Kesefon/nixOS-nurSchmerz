@@ -81,6 +81,7 @@
     onlyoffice-desktopeditors
     xournalpp
     banana-cursor
+    yt-dlp
   ];
 
   programs.steam = {
