@@ -4,6 +4,9 @@
     enable = true;
     setAsDefaultBrowser = true;
     profiles.default = {
+      id = 0;
+      name = "nix-hm-default";
+      isDefault = true;
       extensions = {
         force = true;
       };
@@ -24,11 +27,11 @@
             name = "Nixpkgs";
             urls = [
               {
-                template = "https://search.nixos.org/packages?query={searchTerms}";
+                template = "https://search.nixos.org/packages";
                 params = [
                   {
                     name = "query";
-                    value = "searchTerms";
+                    value = "{searchTerms}";
                   }
                 ];
               }
@@ -40,11 +43,11 @@
             name = "NixOS options";
             urls = [
               {
-                template = "https://search.nixos.org/options?query={searchTerms}";
+                template = "https://search.nixos.org/options";
                 params = [
                   {
                     name = "query";
-                    value = "searchTerms";
+                    value = "{searchTerms}";
                   }
                 ];
               }
@@ -56,11 +59,11 @@
             name = "Arch Wiki";
             urls = [
               {
-                template = "https://wiki.archlinux.org/index.php?search={searchTerms}";
+                template = "https://wiki.archlinux.org/index.php";
                 params = [
                   {
-                    name = "query";
-                    value = "searchTerms";
+                    name = "search";
+                    value = "{searchTerms}";
                   }
                 ];
               }
@@ -71,11 +74,11 @@
             name = "GitHub";
             urls = [
               {
-                template = "https://github.com/search?q={searchTerms}";
+                template = "https://github.com/search";
                 params = [
                   {
-                    name = "query";
-                    value = "searchTerms";
+                    name = "q";
+                    value = "{searchTerms}";
                   }
                 ];
               }
@@ -96,6 +99,10 @@
         "jid1-BoFifL9Vbdl2zQ@jetpack" = "decentraleyes";
         "firefox-extension@steamdb.info" = "steam-database";
         "streetpass@streetpass.social" = "streetpass-for-mastodon";
+      } // {
+        "*" = {
+          installation_mode = "blocked";
+        };
       };
       AutofillAddressEnabled = false;
       AutofillCreditCardEnabled = false;
