@@ -41,7 +41,7 @@
       wireguardPeers = [
         {
           # xperia
-          PublicKey = "umvZHRYwqrpiLgz3XieZ2zAJws391BmVVtUrmzyc0BY=";
+          PublicKey = "lEV8/Finjyiahq7xyYpRVNhBM8DeDv2t1vSlybJz8ms=";
           PresharedKeyFile = "/mnt/data/secrets/wireguard/preshared-xperia";
           AllowedIPs = [
             "fd42::1/128"
