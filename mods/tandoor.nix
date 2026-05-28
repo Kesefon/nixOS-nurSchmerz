@@ -3,6 +3,7 @@
 {
   services.tandoor-recipes = {
     enable = true;
+    address = "localhost";
     extraConfig = {
       ALLOWED_HOSTS = "cook.in.froggo.garden";
     };
