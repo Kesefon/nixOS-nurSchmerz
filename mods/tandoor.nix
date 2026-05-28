@@ -3,13 +3,15 @@
 {
   services.tandoor-recipes = {
     enable = true;
-    address = "cook.in.froggo.garden";
+    extraConfig = {
+      ALLOWED_HOSTS = "cook.in.froggo.garden";
+    };
     database.createLocally = true;
     extraConfig.MEDIA_ROOT = "/var/lib/tandoor-recipes/media";
     port = 8099;
   };
 
-  services.nginx.virtualHosts."${toString config.services.tandoor-recipes.address}" = {
+  services.nginx.virtualHosts."${toString config.services.tandoor-recipes.extraConfig.ALLOWED_HOSTS}" = {
     locations."/media/" = {
       alias = "${config.services.tandoor-recipes.extraConfig.MEDIA_ROOT}";
     };
