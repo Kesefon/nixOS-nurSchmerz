@@ -82,6 +82,7 @@
     xournalpp
     banana-cursor
     yt-dlp
+    android-tools
   ];
 
   programs.steam = {
