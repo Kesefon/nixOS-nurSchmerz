@@ -9,6 +9,7 @@
       behind-proxy = true;
       auth-file = "/mnt/data/ntfy/user.db";
       auth-default-access = "deny-all";
+      auth-access = [ "*:up*:wo" ];
       enable-login = true;
       attachment-cache-dir = "/mnt/data/ntfy/attachmments";
     };
