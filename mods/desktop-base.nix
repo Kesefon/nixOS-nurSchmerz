@@ -74,7 +74,7 @@
   environment.systemPackages = with pkgs; [
     spotify
     kdePackages.kate
-    kdePackages.kdevelop
+    kdePackages.neochat
     discord
     mpv
     krita
@@ -84,6 +84,11 @@
     yt-dlp
     android-tools
   ];
+
+  # Allow olm for NeoChat
+  nixpkgs.config.permittedInsecurePackages = [
+                "olm-3.2.16"
+              ];
 
   programs.steam = {
     localNetworkGameTransfers.openFirewall = true;
