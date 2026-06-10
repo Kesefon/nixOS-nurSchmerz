@@ -12,8 +12,8 @@ python3Packages.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "kesefon";
     repo = "mloader";
-    rev = "9be124ddfa513ed055356bc92295a2f403bfbd1e";
-    hash = "sha256-Jeg4hbg+2y6Lub/D84as1EhPxU8PBj//X3zRHMkN0m0=";
+    rev = "7e2b92d792c95d5223a150341180369623fdf509";
+    hash = "sha256-KfLuReeO2Se3UZrjfA6SP936MZVfW/pNRUQDxJdWpHg=";
   };
 
   build-system = with python3Packages; [ setuptools ];
