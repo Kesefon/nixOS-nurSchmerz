@@ -83,6 +83,7 @@
     banana-cursor
     yt-dlp
     android-tools
+    dillo
   ];
 
   # Allow olm for NeoChat
