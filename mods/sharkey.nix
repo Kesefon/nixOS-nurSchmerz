@@ -39,9 +39,7 @@
   services.nginx.virtualHosts."froggo.garden" = {
     locations."/" = {
       proxyPass = "http://localhost:${toString config.services.sharkey.settings.port}";
-      # temporarily disabled until https://activitypub.software/TransFem-org/Sharkey/-/issues/1279
-      # is fixed
-      proxyWebsockets = false;
+      proxyWebsockets = true;
     };
     useACMEHost = "froggo-garden";
     forceSSL = true;
