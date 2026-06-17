@@ -28,7 +28,7 @@
     tabletMode.enable = true;
   };
   environment.systemPackages = with pkgs; [
-    maliit-keyboard
+    kdePackages.plasma-keyboard
   ];
 
   virtualisation.waydroid.enable = true;
