@@ -9,7 +9,6 @@
         "tcp-tls:1.0.0.1:853"
         "sdns://AgcAAAAAAAAADjE4NS43MS4xMzguMTM4ABF3aWtpbWVkaWEtZG5zLm9yZwovZG5zLXF1ZXJ5" # Wikimedia IPv4
         "sdns://AgcAAAAAAAAAEVsyMDAxOjY3Yzo5MzA6OjFdABF3aWtpbWVkaWEtZG5zLm9yZwovZG5zLXF1ZXJ5" # Wikimedia IPv6
-        "sdns://AwcAAAAAAAAACzUuOS4xNjQuMTEyBQIPDwJWFmRuczMuZGlnaXRhbGNvdXJhZ2UuZGU" # digitalcourage IPv4
         "sdns://AwcAAAAAAAAAFVsyYTAxOjRmODoyNTE6NTU0OjoyXQUCDw8CVhZkbnMzLmRpZ2l0YWxjb3VyYWdlLmRl" # digitalcourage IPv6
         "https://unfiltered.adguard-dns.com/dns-query"
         "sdns://AwMAAAAAAAAACzE5NC4yNDIuMi4yAA9kbnMubXVsbHZhZC5uZXQ" # Mullvad IPv4
