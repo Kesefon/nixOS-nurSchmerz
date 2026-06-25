@@ -8,7 +8,8 @@ let
       #!/bin/sh
       ${pkgs.curl}/bin/curl \
         -H "Authorization: Bearer $(cat ${config.age.secrets.ntfy-token.path})" \
-        -d "$1 failed on $(${pkgs.hostname}/bin/hostname)" \
+        -H "Title: $1 failed on $(${pkgs.hostname}/bin/hostname)" \
+        -d "$(${pkgs.systemd}/bin/journalctl -u $1 -n 30)" \
         https://ntfy.froggo.garden/service-fail-alert
     '';
 in
