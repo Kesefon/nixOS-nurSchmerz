@@ -21,7 +21,11 @@
     flake = "github:kesefon/nixOS-nurSchmerz/rolling";
     runGarbageCollection = true;
   };
-  nix.gc.automatic = true;
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 5d";
+  };
+
 
   # Enable networking
   networking.nftables.enable = true;
