@@ -16,14 +16,6 @@
 
   networking.hostName = "cloudbox";
 
-  system.autoUpgrade = {
-    allowReboot = true;
-    rebootWindow = {
-      lower = "05:00";
-      upper = "08:00";
-    };
-  };
-
   boot.initrd.kernelModules = [ "virtio_gpu" ];
   boot.initrd.availableKernelModules = [ "xhci_pci" "virtio_pci" "virtio_scsi" "usbhid" "sr_mod" ];
   boot.kernelParams = [ "console=tty" ];
