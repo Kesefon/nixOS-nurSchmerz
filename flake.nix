@@ -23,6 +23,10 @@
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
     plasma-manager.inputs.home-manager.follows = "home-manager";
 
+    nix-on-droid.url = "github:nix-community/nix-on-droid/testing";
+    nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
+    nix-on-droid.inputs.home-manager.follows = "home-manager";
+
     ssh-keys = {
       url = "https://github.com/kesefon.keys";
       flake = false;
@@ -36,7 +40,7 @@
       "kesefon.cachix.org-1:Z4qoXB2Qz56yg2GyESIatezeFyDKRZSAaJvtEFk32j8="
     ];
   };
-  outputs = inputs@{ nixpkgs, agenix, ... }: {
+  outputs = inputs@{ nixpkgs, agenix, nix-on-droid, ... }: {
     nixosConfigurations.shitbox = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
@@ -78,6 +82,10 @@
         ./compupars/cloudbox.nix
         agenix.nixosModules.default
       ];
+    };
+    nixOnDroidConfigurations.xperia = nix-on-droid.lib.nixOnDroidConfiguration {
+      pkgs = import nixpkgs { system = "aarch64-linux"; };
+      modules = [ ./compupars/xperia.nix ];
     };
   };
 }
