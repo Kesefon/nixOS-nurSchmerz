@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  nixpkgs.config.permittedInsecurePackages = [
+    "pnpm-10.34.0"
+  ];
+
   services.sharkey = {
     enable = true;
     settings = {
