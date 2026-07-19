@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./livekit.nix
+  ];
+
   services.matrix-tuwunel = {
     enable = true;
     settings = {
@@ -28,18 +32,28 @@
     };
     "froggo.garden" = {
       locations."/.well-known/matrix/server" = {
-        return = "200 '{\"m.server\": \"matrix.froggo.garden:443\"}'";
+        return = "200 '${builtins.toJSON { "m.server" = "matrix.froggo.garden:443"; }}'";
         extraConfig = "
           add_header Content-Type application/json;
           add_header Access-Control-Allow-Origin '*';
         ";
       };
       locations."/.well-known/matrix/client" = {
-        return = "200 '{
-          \"m.homeserver\": { \"base_url\": \"https://matrix.froggo.garden\" },
-          \"org.matrix.msc3575.proxy\": { \"url\": \"https://matrix.froggo.garden\" },
-          \"im.vector.riot.jitsi\": {\"preferredDomain\": \"jitsi.riot.im\"},
-          \"im.vector.riot.e2ee\": {\"default\": true }
+        return = "200 '${
+          builtins.toJSON {
+            "m.homeserver" = {
+              "base_url" = "https://matrix.froggo.garden";
+            };
+            "org.matrix.msc3575.proxy" = {
+              "url" = "https://matrix.froggo.garden";
+            };
+            "org.matrix.msc4143.rtc_foci" = [
+              {
+                "type" = "livekit";
+                "livekit_service_url" = "https://livekit.froggo.garden/jwt";
+              }
+            ];
+          }
         }'";
         extraConfig = "
           add_header Content-Type application/json;
