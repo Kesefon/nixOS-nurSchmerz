@@ -70,6 +70,7 @@
     git
     tree
     htop
+    jq
   ];
 
   programs.fish.enable = true;
