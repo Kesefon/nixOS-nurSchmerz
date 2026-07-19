@@ -57,41 +57,44 @@ in
 
   # restrict access to livekit room creation to a homeserver
   systemd.services.lk-jwt-service.environment.LIVEKIT_FULL_ACCESS_HOMESERVERS = "froggo.garden";
-  services.nginx.virtualHosts."livekit.froggo.garden".locations = {
+  services.nginx.virtualHosts."livekit.froggo.garden" = {
+    locations = {
 
-    "^~ /jwt/" = {
+      "^~ /jwt/" = {
 
-      extraConfig = ''
-        add_header Access-Control-Allow-Origin '*';
-      '';
+        extraConfig = ''
+          add_header Access-Control-Allow-Origin '*';
+        '';
 
-      priority = 400;
+        priority = 400;
 
-      proxyPass = "http://[::1]:${toString config.services.lk-jwt-service.port}/";
+        proxyPass = "http://localhost:${toString config.services.lk-jwt-service.port}/";
 
+      };
+
+      "^~ /sfu/" = {
+
+        extraConfig = ''
+          add_header Access-Control-Allow-Origin '*';
+
+          proxy_send_timeout 120;
+          proxy_read_timeout 120;
+          proxy_buffering off;
+
+          proxy_set_header Accept-Encoding gzip;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection "upgrade";
+        '';
+
+        priority = 400;
+
+        proxyPass = "http://localhost:${toString config.services.livekit.settings.port}/";
+
+        proxyWebsockets = true;
+
+      };
     };
-
-    "^~ /sfu/" = {
-
-      extraConfig = ''
-        add_header Access-Control-Allow-Origin '*';
-
-        proxy_send_timeout 120;
-        proxy_read_timeout 120;
-        proxy_buffering off;
-
-        proxy_set_header Accept-Encoding gzip;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-      '';
-
-      priority = 400;
-
-      proxyPass = "http://[::1]:${toString config.services.livekit.settings.port}/";
-
-      proxyWebsockets = true;
-
-    };
-
+    useACMEHost = "froggo-garden";
+    forceSSL = true;
   };
 }
