@@ -1,4 +1,9 @@
-{inputs, globals, specialArgs, ...}:
+{
+  inputs,
+  globals,
+  specialArgs,
+  ...
+}:
 
 {
   home-manager.extraSpecialArgs = specialArgs;

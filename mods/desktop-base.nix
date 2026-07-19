@@ -1,4 +1,9 @@
-{ pkgs, lib, globals, ... }:
+{
+  pkgs,
+  lib,
+  globals,
+  ...
+}:
 
 {
   imports = [
@@ -15,8 +20,8 @@
   # TPM2
   # Note: Not all my machines have a tpm module
   security.tpm2.enable = true;
-  security.tpm2.pkcs11.enable = true;  # expose /run/current-system/sw/lib/libtpm2_pkcs11.so
-  security.tpm2.tctiEnvironment.enable = true;  # TPM2TOOLS_TCTI and TPM2_PKCS11_TCTI env variables
+  security.tpm2.pkcs11.enable = true; # expose /run/current-system/sw/lib/libtpm2_pkcs11.so
+  security.tpm2.tctiEnvironment.enable = true; # TPM2TOOLS_TCTI and TPM2_PKCS11_TCTI env variables
 
   # Configure keymap in X11
   services.xserver.xkb = lib.mkDefault {
@@ -43,7 +48,10 @@
       useEmbeddedBitmaps = true;
       defaultFonts = {
         monospace = [ "Comic Mono" ];
-        emoji = [ "Blobmoji" "Noto Color Emoji" ];
+        emoji = [
+          "Blobmoji"
+          "Noto Color Emoji"
+        ];
       };
     };
   };
@@ -88,8 +96,8 @@
 
   # Allow olm for NeoChat
   nixpkgs.config.permittedInsecurePackages = [
-                "olm-3.2.16"
-              ];
+    "olm-3.2.16"
+  ];
 
   programs.steam = {
     localNetworkGameTransfers.openFirewall = true;

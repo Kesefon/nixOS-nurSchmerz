@@ -19,7 +19,7 @@
   users.groups.sharkey = {
   };
 
-  users.users.sharkey =  {
+  users.users.sharkey = {
     isSystemUser = true;
     group = "sharkey";
   };

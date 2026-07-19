@@ -36,48 +36,51 @@
       "kesefon.cachix.org-1:Z4qoXB2Qz56yg2GyESIatezeFyDKRZSAaJvtEFk32j8="
     ];
   };
-  outputs = inputs@{ nixpkgs, agenix, ... }: {
-    nixosConfigurations.shitbox = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
-        globals = import ./globals.nix;
+  outputs =
+    inputs@{ nixpkgs, agenix, ... }:
+    {
+      nixosConfigurations.shitbox = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+          globals = import ./globals.nix;
+        };
+        modules = [
+          ./compupars/shitbox.nix
+        ];
       };
-      modules = [
-        ./compupars/shitbox.nix
-      ];
-    };
-    nixosConfigurations.togobox = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
-        globals = import ./globals.nix;
+      nixosConfigurations.togobox = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+          globals = import ./globals.nix;
+        };
+        modules = [
+          ./compupars/togobox.nix
+        ];
       };
-      modules = [
-        ./compupars/togobox.nix
-      ];
-    };
-    nixosConfigurations.smolbox = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
-      specialArgs = {
-        inherit inputs;
-        globals = import ./globals.nix;
+      nixosConfigurations.smolbox = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = {
+          inherit inputs;
+          globals = import ./globals.nix;
+        };
+        modules = [
+          ./compupars/smolbox.nix
+          agenix.nixosModules.default
+        ];
       };
-      modules = [
-        ./compupars/smolbox.nix
-        agenix.nixosModules.default
-      ];
-    };
-    nixosConfigurations.cloudbox = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
-      specialArgs = {
-        inherit inputs;
-        globals = import ./globals.nix;
+      nixosConfigurations.cloudbox = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = {
+          inherit inputs;
+          globals = import ./globals.nix;
+        };
+        modules = [
+          ./compupars/cloudbox.nix
+          agenix.nixosModules.default
+        ];
       };
-      modules = [
-        ./compupars/cloudbox.nix
-        agenix.nixosModules.default
-      ];
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
     };
-  };
 }

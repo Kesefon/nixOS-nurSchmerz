@@ -23,8 +23,9 @@
           "https://oooo.b-cdn.net/blahdns/blahdns_hosts.txt"
         ];
         allowlists.ads = [
-          ''|
-*.dc-telemetry.net''
+          ''
+            |
+            *.dc-telemetry.net''
         ];
         clientGroupsBlock.default = [ "ads" ];
       };

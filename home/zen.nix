@@ -37,7 +37,7 @@
               }
             ];
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = ["@np"];
+            definedAliases = [ "@np" ];
           };
           nixopts = {
             name = "NixOS options";
@@ -53,7 +53,7 @@
               }
             ];
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = ["@no"];
+            definedAliases = [ "@no" ];
           };
           archwiki = {
             name = "Arch Wiki";
@@ -68,7 +68,7 @@
                 ];
               }
             ];
-            definedAliases = ["@aw"];
+            definedAliases = [ "@aw" ];
           };
           github = {
             name = "GitHub";
@@ -83,79 +83,85 @@
                 ];
               }
             ];
-            definedAliases = ["@gh"];
+            definedAliases = [ "@gh" ];
           };
         };
       };
     };
-    policies = let
-      mkExtensionSettings = builtins.mapAttrs (_: pluginId: {
-        install_url = "https://addons.mozilla.org/firefox/downloads/latest/${pluginId}/latest.xpi";
-        installation_mode = "force_installed";
-      });
-    in {
-      ExtensionSettings = mkExtensionSettings {
-        "uBlock0@raymondhill.net" = "ublock-origin";
-        "jid1-BoFifL9Vbdl2zQ@jetpack" = "decentraleyes";
-        "firefox-extension@steamdb.info" = "steam-database";
-        "streetpass@streetpass.social" = "streetpass-for-mastodon";
-      } // {
-        "*" = {
-          installation_mode = "blocked";
+    policies =
+      let
+        mkExtensionSettings = builtins.mapAttrs (
+          _: pluginId: {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/${pluginId}/latest.xpi";
+            installation_mode = "force_installed";
+          }
+        );
+      in
+      {
+        ExtensionSettings =
+          mkExtensionSettings {
+            "uBlock0@raymondhill.net" = "ublock-origin";
+            "jid1-BoFifL9Vbdl2zQ@jetpack" = "decentraleyes";
+            "firefox-extension@steamdb.info" = "steam-database";
+            "streetpass@streetpass.social" = "streetpass-for-mastodon";
+          }
+          // {
+            "*" = {
+              installation_mode = "blocked";
+            };
+          };
+        AutofillAddressEnabled = false;
+        AutofillCreditCardEnabled = false;
+        DisableAppUpdate = true;
+        DisableFeedbackCommands = true;
+        DisableFirefoxStudies = true;
+        DisablePocket = true;
+        DisableTelemetry = true;
+        DontCheckDefaultBrowser = true;
+        NoDefaultBookmarks = true;
+        EnableTrackingProtection = {
+          Value = true;
+          Locked = true;
+          Cryptomining = true;
+          Fingerprinting = true;
         };
-      };
-      AutofillAddressEnabled = false;
-      AutofillCreditCardEnabled = false;
-      DisableAppUpdate = true;
-      DisableFeedbackCommands = true;
-      DisableFirefoxStudies = true;
-      DisablePocket = true;
-      DisableTelemetry = true;
-      DontCheckDefaultBrowser = true;
-      NoDefaultBookmarks = true;
-      EnableTrackingProtection = {
-        Value = true;
-        Locked = true;
-        Cryptomining = true;
-        Fingerprinting = true;
-      };
-      "3rdparty".Extensions = {
-        "uBlock0@raymondhill.net".adminSettings = {
-          userSettings = rec {
-            advancedUserEnabled = true;
-            cloudStorageEnabled = false;
+        "3rdparty".Extensions = {
+          "uBlock0@raymondhill.net".adminSettings = {
+            userSettings = rec {
+              advancedUserEnabled = true;
+              cloudStorageEnabled = false;
 
-            importedLists = [
+              importedLists = [
+                "https://raw.githubusercontent.com/gijsdev/ublock-hide-yt-shorts/master/list.txt"
+              ];
+
+              externalLists = lib.concatStringsSep "\n" importedLists;
+            };
+
+            selectedFilterLists = [
+              "ublock-filters"
+              "ublock-badware"
+              "ublock-privacy"
+              "ublock-quick-fixes"
+              "ublock-unbreak"
+              "easylist"
+              "easyprivacy"
+              "urlhaus-1"
+              "plowe-0"
+              "fanboy-cookiemonster"
+              "ublock-cookies-easylist"
+              "adguard-cookies"
+              "ublock-cookies-adguard"
+              "fanboy-thirdparty_social"
+              "easylist-chat"
+              "easylist-newsletters"
+              "adguard-mobile-app-banners"
+              "adguard-popup-overlays"
+              "DEU-0"
               "https://raw.githubusercontent.com/gijsdev/ublock-hide-yt-shorts/master/list.txt"
             ];
-
-            externalLists = lib.concatStringsSep "\n" importedLists;
           };
-
-          selectedFilterLists = [
-          "ublock-filters"
-          "ublock-badware"
-          "ublock-privacy"
-          "ublock-quick-fixes"
-          "ublock-unbreak"
-          "easylist"
-          "easyprivacy"
-          "urlhaus-1"
-          "plowe-0"
-          "fanboy-cookiemonster"
-          "ublock-cookies-easylist"
-          "adguard-cookies"
-          "ublock-cookies-adguard"
-          "fanboy-thirdparty_social"
-          "easylist-chat"
-          "easylist-newsletters"
-          "adguard-mobile-app-banners"
-          "adguard-popup-overlays"
-          "DEU-0"
-          "https://raw.githubusercontent.com/gijsdev/ublock-hide-yt-shorts/master/list.txt"
-          ];
         };
       };
-    };
   };
 }

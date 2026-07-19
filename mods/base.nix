@@ -1,4 +1,10 @@
-{ pkgs, lib, inputs, globals, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  globals,
+  ...
+}:
 
 {
   # Bootloader.
@@ -25,7 +31,6 @@
     automatic = true;
     options = "--delete-older-than 5d";
   };
-
 
   # Enable networking
   networking.nftables.enable = true;
@@ -54,7 +59,11 @@
   users.users."${globals.userinfo.username}" = {
     isNormalUser = true;
     description = "${globals.userinfo.name}";
-    extraGroups = [ "networkmanager" "wheel" "systemd-journal" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "systemd-journal"
+    ];
     openssh.authorizedKeys.keyFiles = [ inputs.ssh-keys.outPath ];
   };
 
@@ -85,7 +94,10 @@
     '';
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

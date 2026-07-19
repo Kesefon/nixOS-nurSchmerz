@@ -5,9 +5,12 @@
     enable = true;
     port = 8098;
     mediaLocation = "/mnt/data/share/Picture";
-    accelerationDevices = [ "/dev/dri/renderD128" ];    
+    accelerationDevices = [ "/dev/dri/renderD128" ];
   };
-  users.users.immich.extraGroups = [ "render" "video" ];
+  users.users.immich.extraGroups = [
+    "render"
+    "video"
+  ];
 
   services.nginx.virtualHosts."pics.in.froggo.garden" = {
     locations."/" = {

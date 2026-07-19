@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     comic-mono
@@ -70,7 +70,11 @@
       };
       titlebarButtons = {
         left = [ "keep-above-windows" ];
-        right = [ "minimize" "maximize" "close" ];
+        right = [
+          "minimize"
+          "maximize"
+          "close"
+        ];
       };
       virtualDesktops.number = 1;
     };
@@ -150,7 +154,7 @@
       dolphinrc.General.ConfirmClosingMultipleTabs = false;
       dolphinrc.General.RememberOpenedTabs = false;
       dolphinrc.General.GlobalViewProps = false;
-       #TODO Ctrl+F for filter in dolphin
+      #TODO Ctrl+F for filter in dolphin
       kcminputrc.Mouse.XLbInptLeftHanded = true;
       kdeglobals.General.AccentColor = "255,0,153";
       kdeglobals."KFileDialog Settings"."Show hidden files" = true;

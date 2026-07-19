@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     noto-fonts-emoji-blob-bin
@@ -11,7 +11,10 @@
       enable = true;
       defaultFonts = {
         monospace = [ "Comic Mono" ];
-        emoji = [ "Blobmoji" "Noto Color Emoji" ];
+        emoji = [
+          "Blobmoji"
+          "Noto Color Emoji"
+        ];
       };
     };
   };

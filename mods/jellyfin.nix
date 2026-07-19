@@ -27,16 +27,18 @@
     };
   };
 
-  /*services.udev.extraRules = ''
-    KERNEL=="mpp_service", MODE="0660", GROUP="video"
-    KERNEL=="rga", MODE="0660", GROUP="video"
-    KERNEL=="system", MODE="0666", GROUP="video"
-    KERNEL=="system-dma32", MODE="0666", GROUP="video"
-    KERNEL=="system-uncached", MODE="0666", GROUP="video"
-    KERNEL=="system-uncached-dma32", MODE="0666", GROUP="video" RUN+="${pkgs.coreutils}/bin/chmod a+rw /dev/dma_heap"
-  '';
-  users.users.jellyfin.extraGroups = [ "render" "video" ];
-  environment.systemPackages = [ pkgs.armbian-firmware ];*/
+  /*
+    services.udev.extraRules = ''
+      KERNEL=="mpp_service", MODE="0660", GROUP="video"
+      KERNEL=="rga", MODE="0660", GROUP="video"
+      KERNEL=="system", MODE="0666", GROUP="video"
+      KERNEL=="system-dma32", MODE="0666", GROUP="video"
+      KERNEL=="system-uncached", MODE="0666", GROUP="video"
+      KERNEL=="system-uncached-dma32", MODE="0666", GROUP="video" RUN+="${pkgs.coreutils}/bin/chmod a+rw /dev/dma_heap"
+    '';
+    users.users.jellyfin.extraGroups = [ "render" "video" ];
+    environment.systemPackages = [ pkgs.armbian-firmware ];
+  */
 
   services.nginx.virtualHosts."watch.in.froggo.garden" = {
     locations."/" = {

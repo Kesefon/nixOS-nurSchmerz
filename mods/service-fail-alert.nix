@@ -1,17 +1,21 @@
 # Monitoring für Arme
 # based on https://pascal-wittmann.de/entry/systemd-failure-notification
 
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
-  service-fail-alert = pkgs.writeScript "service-fail-alert"
-    ''
-      #!/bin/sh
-      ${pkgs.curl}/bin/curl \
-        -H "Authorization: Bearer $(cat ${config.age.secrets.ntfy-token.path})" \
-        -H "Title: $1 failed on $(${pkgs.hostname}/bin/hostname)" \
-        -d "$(${pkgs.systemd}/bin/journalctl -u $1 -n 30)" \
-        https://ntfy.froggo.garden/service-fail-alert
-    '';
+  service-fail-alert = pkgs.writeScript "service-fail-alert" ''
+    #!/bin/sh
+    ${pkgs.curl}/bin/curl \
+      -H "Authorization: Bearer $(cat ${config.age.secrets.ntfy-token.path})" \
+      -H "Title: $1 failed on $(${pkgs.hostname}/bin/hostname)" \
+      -d "$(${pkgs.systemd}/bin/journalctl -u $1 -n 30)" \
+      https://ntfy.froggo.garden/service-fail-alert
+  '';
 in
 
 {
@@ -19,7 +23,7 @@ in
 
   config.systemd.services."service-fail-alert@" = {
     description = "Send notification on service failure";
-    onFailure = lib.mkForce [];
+    onFailure = lib.mkForce [ ];
     serviceConfig = {
       ExecStart = "${service-fail-alert} %i";
       Type = "oneshot";
