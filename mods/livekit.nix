@@ -62,10 +62,6 @@ in
 
       "^~ /jwt/" = {
 
-        extraConfig = ''
-          add_header Access-Control-Allow-Origin '*';
-        '';
-
         priority = 400;
 
         proxyPass = "http://localhost:${toString config.services.lk-jwt-service.port}/";
@@ -75,8 +71,6 @@ in
       "^~ /sfu/" = {
 
         extraConfig = ''
-          add_header Access-Control-Allow-Origin '*';
-
           proxy_send_timeout 120;
           proxy_read_timeout 120;
           proxy_buffering off;
