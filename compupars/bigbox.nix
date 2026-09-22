@@ -57,6 +57,11 @@
     ];
   };
 
+  fileSystems."/run/media/system/Games" = {
+    device = "/dev/disk/by-label/Games";
+    fsType = "ext4";
+  };
+
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
