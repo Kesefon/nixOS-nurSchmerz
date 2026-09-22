@@ -2,6 +2,8 @@
   inputs,
   globals,
   specialArgs,
+  lib,
+  config,
   ...
 }:
 
@@ -15,5 +17,7 @@
     inputs.zen-browser.homeModules.beta
   ];
 
-  home-manager.users."${globals.userinfo.username}" = (import ../home/home.nix) { inherit globals; };
+  home-manager.users."${globals.userinfo.username}" = lib.mkIf (!config.services.homed.enable) (
+    (import ../home/home.nix) { inherit globals; }
+  );
 }

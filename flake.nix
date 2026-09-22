@@ -81,6 +81,16 @@
           agenix.nixosModules.default
         ];
       };
+      nixosConfigurations.bigbox = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+          globals = import ./globals.nix;
+        };
+        modules = [
+          ./compupars/bigbox.nix
+        ];
+      };
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
     };
 }
