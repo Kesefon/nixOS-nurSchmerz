@@ -19,6 +19,10 @@
 
     # Use latest kernel.
     kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+
+    kernelParams = [
+      "drm.panic_screen=qr_code"
+    ];
   };
 
   system.autoUpgrade = {
