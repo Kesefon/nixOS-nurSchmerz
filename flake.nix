@@ -23,6 +23,9 @@
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
     plasma-manager.inputs.home-manager.follows = "home-manager";
 
+    rom-properties.url = "github:Whovian9369/rom-properties-nix-flake";
+    rom-properties.inputs.nixpkgs.follows = "nixpkgs";
+
     ssh-keys = {
       url = "https://github.com/kesefon.keys";
       flake = false;

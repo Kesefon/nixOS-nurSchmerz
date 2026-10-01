@@ -2,6 +2,7 @@
   pkgs,
   lib,
   globals,
+  inputs,
   ...
 }:
 
@@ -83,6 +84,7 @@
     spotify
     kdePackages.kate
     kdePackages.neochat
+    inputs.rom-properties.packages."${pkgs.stdenv.hostPlatform.system}".rp_kde6
     discord
     mpv
     krita

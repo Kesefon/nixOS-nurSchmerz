@@ -240,6 +240,26 @@
         "type": "github"
       }
     },
+    "rom-properties": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789537644,
+        "narHash": "sha256-1t6TGDKTB3LY+2tdaMdOwxbkDM8BuXszLk0O97AUl5g=",
+        "owner": "Whovian9369",
+        "repo": "rom-properties-nix-flake",
+        "rev": "c2e0c99db7ca8c60e7a17db9773dfd0200a47efc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Whovian9369",
+        "repo": "rom-properties-nix-flake",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -248,6 +268,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "plasma-manager": "plasma-manager",
+        "rom-properties": "rom-properties",
         "ssh-keys": "ssh-keys",
         "zen-browser": "zen-browser"
       }
