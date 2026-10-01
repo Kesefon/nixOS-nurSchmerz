@@ -39,6 +39,8 @@ jobs:
             target: smolbox
           - host: ubuntu-latest
             target: togobox
+          - host: ubuntu-latest
+            target: bigbox
 
     runs-on: ${{ matrix.host }}
     env:
