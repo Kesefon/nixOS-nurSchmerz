@@ -106,5 +106,10 @@
     enable = true;
   };
 
+  programs.gamescope = {
+    enable = true;
+    capSysNice = false;
+  };
+
   programs.kdeconnect.enable = true;
 }
