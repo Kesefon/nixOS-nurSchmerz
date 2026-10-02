@@ -26,6 +26,15 @@
     rom-properties.url = "github:Whovian9369/rom-properties-nix-flake";
     rom-properties.inputs.nixpkgs.follows = "nixpkgs";
 
+    geolite2-country-mmdb.url = "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-Country.mmdb";
+    geolite2-country-mmdb.flake = false;
+
+    geolite2-city-mmdb.url = "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-City.mmdb";
+    geolite2-city-mmdb.flake = false;
+
+    geolite2-asn-mmdb.url = "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb";
+    geolite2-asn-mmdb.flake = false;
+
     ssh-keys = {
       url = "https://github.com/kesefon.keys";
       flake = false;

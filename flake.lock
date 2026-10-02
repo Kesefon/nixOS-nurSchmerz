@@ -104,6 +104,42 @@
         "type": "github"
       }
     },
+    "geolite2-asn-mmdb": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-AHRXvN/EeM+X9xR1KsUkXtj0HdbGufGAZfOuyBWb7QY=",
+        "type": "file",
+        "url": "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb"
+      }
+    },
+    "geolite2-city-mmdb": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-IbopIM7KIjenpCpKhGgwVz6zdC/zADC02r6/XGVutOg=",
+        "type": "file",
+        "url": "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-City.mmdb"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-City.mmdb"
+      }
+    },
+    "geolite2-country-mmdb": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-l+5FrfAvAB3zLe4IoQtTq5iGxt1j2sZ+W3z6a+m4en4=",
+        "type": "file",
+        "url": "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-Country.mmdb"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-Country.mmdb"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -263,6 +299,9 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "geolite2-asn-mmdb": "geolite2-asn-mmdb",
+        "geolite2-city-mmdb": "geolite2-city-mmdb",
+        "geolite2-country-mmdb": "geolite2-country-mmdb",
         "home-manager": "home-manager_2",
         "nix-chuwi-minibook-x": "nix-chuwi-minibook-x",
         "nixos-hardware": "nixos-hardware",

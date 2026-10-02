@@ -1,6 +1,10 @@
 { ... }:
 
 {
+  imports = [
+    ./nginx-geoip.nix
+  ];
+
   services.nginx = {
     enable = true;
     recommendedTlsSettings = true;
@@ -22,4 +26,12 @@
     443
   ];
   users.users.nginx.extraGroups = [ "acme" ];
+
+  services.nginx.virtualHosts."_" = {
+    default = true;
+    rejectSSL = true;
+    extraConfig = "
+      deny all;
+    ";
+  };
 }
