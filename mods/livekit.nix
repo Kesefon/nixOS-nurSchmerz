@@ -83,9 +83,6 @@ in
         priority = 400;
 
         proxyPass = "http://localhost:${toString config.services.livekit.settings.port}/";
-
-        proxyWebsockets = true;
-
       };
     };
     useACMEHost = "froggo-garden";

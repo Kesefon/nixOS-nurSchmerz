@@ -43,7 +43,6 @@
   services.nginx.virtualHosts."froggo.garden" = {
     locations."/" = {
       proxyPass = "http://localhost:${toString config.services.sharkey.settings.port}";
-      proxyWebsockets = true;
     };
     useACMEHost = "froggo-garden";
     forceSSL = true;

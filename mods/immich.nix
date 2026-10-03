@@ -15,7 +15,6 @@
   services.nginx.virtualHosts."pics.in.froggo.garden" = {
     locations."/" = {
       proxyPass = "http://localhost:${toString config.services.immich.port}";
-      proxyWebsockets = true;
       extraConfig = "
 
         # allow large file uploads

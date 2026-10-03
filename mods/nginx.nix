@@ -17,6 +17,8 @@
       proxy_set_header        X-Forwarded-Proto $scheme;
       proxy_set_header        X-Forwarded-Host $host;
       proxy_set_header        X-Forwarded-Server $hostname;
+      proxy_set_header        Upgrade $http_upgrade;
+      proxy_set_header        Connection $connection_upgrade;
       set_real_ip_from        fd42::/112;
       set_real_ip_from        10.10.10.0/24;
     ";

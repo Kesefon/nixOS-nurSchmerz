@@ -43,7 +43,6 @@
   services.nginx.virtualHosts."watch.in.froggo.garden" = {
     locations."/" = {
       proxyPass = "http://localhost:8096";
-      proxyWebsockets = true;
     };
     useACMEHost = "in-froggo-garden";
     forceSSL = true;
