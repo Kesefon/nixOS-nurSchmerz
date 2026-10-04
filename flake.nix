@@ -26,6 +26,9 @@
     rom-properties.url = "github:Whovian9369/rom-properties-nix-flake";
     rom-properties.inputs.nixpkgs.follows = "nixpkgs";
 
+    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
+    nixpkgs-xr.inputs.nixpkgs.follows = "nixpkgs";
+
     geolite2-country-mmdb.url = "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-Country.mmdb";
     geolite2-country-mmdb.flake = false;
 
