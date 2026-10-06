@@ -12,7 +12,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ../mods/desktop-base.nix
-    ../mods/vr.nix
+    #../mods/vr.nix # kinda borked
   ];
 
   networking.hostName = "bigbox";
