@@ -10,6 +10,7 @@
   imports = [
     ./base.nix
     ./home-manager.nix
+    ./webcam.nix
   ];
 
   # Enable OpenGL/Vulkan
@@ -85,6 +86,8 @@
     kdePackages.kate
     kdePackages.neochat
     kdePackages.partitionmanager
+    smartmontools
+    kdePackages.kimageformats
     inputs.rom-properties.packages."${pkgs.stdenv.hostPlatform.system}".rp_kde6
     discord
     mpv
@@ -95,6 +98,7 @@
     yt-dlp
     android-tools
     dillo
+    ffmpeg
   ];
 
   # Allow olm for NeoChat
