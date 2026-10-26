@@ -53,5 +53,4 @@ jobs:
       with:
         name: kesefon
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    - run: nix build --profile /nix/var/nix/profiles/system -L github:kesefon/nixOS-nurSchmerz/rolling#nixosConfigurations.${{ matrix.target }}.config.system.build.toplevel
-      continue-on-error: true
+    - run: nix build --accept-flake-config -L github:kesefon/nixOS-nurSchmerz/rolling#nixosConfigurations.${{ matrix.target }}.config.system.build.toplevel
