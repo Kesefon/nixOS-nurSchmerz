@@ -17,7 +17,6 @@
     ../mods/wireguard-server.nix
     ../mods/tuwunel.nix
     ../mods/element.nix
-    ../mods/in.froggo.garden-proxy.nix
   ];
 
   networking.hostName = "cloudbox";
