@@ -4,7 +4,7 @@
   security.acme = {
     acceptTerms = true;
     certs."froggo-garden" = {
-      environmentFile = /mnt/data/secrets/cloudflare-dns-creds;
+      environmentFile = "/mnt/data/secrets/cloudflare-dns-creds";
       dnsProvider = "cloudflare";
       domain = "froggo.garden";
       extraDomainNames = [
